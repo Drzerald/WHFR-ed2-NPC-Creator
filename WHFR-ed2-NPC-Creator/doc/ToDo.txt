@@ -1,0 +1,6 @@
+Class Diagram
+Data base framework // i guess ?
+GUI Design of:
+	Creation window
+	Character Windo
+	Edit Window
