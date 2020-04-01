@@ -6,5 +6,8 @@
         xmlns:local="clr-namespace:WHFR_ed2_NPC_Creator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-	<Grid/>
+	<Grid>
+		<Button x:Name="button" Content="Randomize" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+		<TextBox x:Name="textBox" HorizontalAlignment="Left" Height="145" Margin="10,227,0,0" TextWrapping="Wrap" Text="textBox for dieRoller Debug (easyer than Debug.Log())" VerticalAlignment="Top" Width="496"/>
+	</Grid>
 </Window>
