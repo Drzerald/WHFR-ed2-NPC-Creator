@@ -8,7 +8,7 @@ namespace WHFR_ed2_NPC_Creator
 {
     class SideCharacteristics
     {
-		public int Wounds;
+		public int Wounds;				//NOT COMPLITED
 		public int baliscticSkills;
 		public int strength;
 		public int toughness;
