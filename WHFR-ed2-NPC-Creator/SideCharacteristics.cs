@@ -8,5 +8,13 @@ namespace WHFR_ed2_NPC_Creator
 {
     class SideCharacteristics
     {
-    }
+		public int Wounds;
+		public int baliscticSkills;
+		public int strength;
+		public int toughness;
+		public int agility;
+		public int intelligence;
+		public int willPower;
+		public int fellowship;
+	}
 }
