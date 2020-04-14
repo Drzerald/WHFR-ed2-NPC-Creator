@@ -18,5 +18,9 @@ namespace WHFR_ed2_NPC_Creator {
 			get { return description; }
 			set { description = value; }
 		}
+
+		public override string ToString() {
+			return name.ToString();
+		}
 	}
 }

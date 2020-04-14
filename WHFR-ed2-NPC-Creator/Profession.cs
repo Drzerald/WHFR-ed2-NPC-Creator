@@ -9,6 +9,6 @@ namespace WHFR_ed2_NPC_Creator {
 		string name = "";
 		MainCharacteristics mainCharacteristicsProgression = new MainCharacteristics();
 		SideCharacteristics sideCharacteristicsProgression = new SideCharacteristics();
-
+		
 	}
 }

@@ -26,14 +26,24 @@ namespace WHFR_ed2_NPC_Creator {
 			get { return skillBonus; }
 		}
 
-
-
-
 		public Skill(SkillProfile skillProfile) {
 			level = 1;
 			
 			name = skillProfile.Name;
 			description = skillProfile.Description;
+		}
+
+
+		public void Advance() {
+			if (level >= 3) {
+				level = 3;
+			} else {
+				level += 1;
+			}
+		}
+
+		public void SetLvevel(int level) {
+			this.level = level;
 		}
 
 	}
