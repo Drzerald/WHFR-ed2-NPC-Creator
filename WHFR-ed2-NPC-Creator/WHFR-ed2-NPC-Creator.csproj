@@ -55,7 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Profession.cs" />
     <Compile Include="SideCharacteristics.cs" />
+    <Compile Include="Skill.cs" />
+    <Compile Include="SkillProfile.cs" />
+    <Compile Include="Talent.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
