@@ -31,5 +31,9 @@ namespace WHFR_ed2_NPC_Creator {
 			}
 		}
 
+		private void TextBox_WW_Roll_TextChanged(object sender, TextChangedEventArgs e) {
+			
+			label1_Sum.Content = textBox_WW_Roll.Text;
+		}
 	}
 }
