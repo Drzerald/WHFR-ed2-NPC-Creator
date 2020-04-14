@@ -8,12 +8,12 @@
         Title="MainWindow" Height="450" Width="800">
 	<Grid>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="151*"/>
-			<ColumnDefinition Width="641*"/>
+			<ColumnDefinition Width="0*"/>
+			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		<Button x:Name="button" Content="Waaaaaa!!!" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-		<TextBox x:Name="textBox" HorizontalAlignment="Left" Height="145" Margin="10,227,0,0" TextWrapping="Wrap" Text="textBox for dieRoller Debug (easyer than Debug.Log())" VerticalAlignment="Top" Width="496" Grid.ColumnSpan="2"/>
-		<GroupBox x:Name="groupBox" Header="Cechy" HorizontalAlignment="Left" Height="171" Margin="10,10,0,0" VerticalAlignment="Top" Width="355" Grid.ColumnSpan="2">
+		<Button x:Name="button" Content="Waaaaaa!!!" HorizontalAlignment="Left" Margin="1,389,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="1" Height="20"/>
+		<TextBox x:Name="textBox" HorizontalAlignment="Left" Height="145" Margin="1,227,0,0" TextWrapping="Wrap" Text="textBox for dieRoller Debug (easyer than Debug.Log())" VerticalAlignment="Top" Width="496" Grid.Column="1"/>
+		<GroupBox x:Name="groupBox" Header="Cechy" HorizontalAlignment="Left" Height="171" Margin="1,10,0,0" VerticalAlignment="Top" Width="355" Grid.Column="1">
 			<Grid Margin="0,0,0,0">
 
 				<Label x:Name="label1" Content="WW" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Width="36"/>
@@ -37,7 +37,7 @@
 
 
 
-				<TextBox x:Name="textBox_WW_Roll" HorizontalAlignment="Left" Height="23" Margin="10,28,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center" TextChanged="TextBox_WW_Roll_TextChanged"/>
+				<TextBox x:Name="textBox_WW_Roll" HorizontalAlignment="Left" Height="23" Margin="10,28,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center" />
 				<TextBox x:Name="textBox_WW_BaseRace" HorizontalAlignment="Left" Height="23" Margin="10,56,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 
 				<TextBox x:Name="textBox_US_Roll" HorizontalAlignment="Left" Height="23" Margin="51,28,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>

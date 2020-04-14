@@ -25,15 +25,17 @@ namespace WHFR_ed2_NPC_Creator {
 		private void Button_Click(object sender, RoutedEventArgs e) {
 			DieRoller die = new DieRoller();
 			textBox.Text = "";
-			for (int i = 1; i < 100; i++) {
-				textBox.AppendText( die.rollD10().ToString());
-				textBox.AppendText(", ");
-			}
+
+			SkillList skills = new SkillList();
+			Skill skill = new Skill("Climbing");
+			skills.addSkill(skill);
+			skills.addSkill(skill);
+			
+			System.Diagnostics.Debug.WriteLine(skill.ToString());
+			skills.advanceSkill("Climbing");
+			System.Diagnostics.Debug.WriteLine(skill.ToString());
+			textBox.Text = skill.ToString();
 		}
 
-		private void TextBox_WW_Roll_TextChanged(object sender, TextChangedEventArgs e) {
-			
-			label1_Sum.Content = textBox_WW_Roll.Text;
-		}
 	}
 }

@@ -5,32 +5,43 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WHFR_ed2_NPC_Creator {
-	class Skill : SkillProfile{
+	class Skill : SkillProfile {
 
+		//Variable Declaration
 		protected int level;
 		protected int skillBonus;
 
-
-		public int Level {			//Skill level 
+		// Get/Set 
+		public int Level {          //Skill level 
 			get { return level; }
 			set {
-				if (value < 0) { level = 0; } 
-				else if (value > 3) { level = 3; } 
-				else { level = value; }
+				if (value < 0) { level = 0; } else if (value > 3) { level = 3; } else { level = value; }
 				SkillBonus = (level - 1) * 10;
 			}
 		}
 
-		public int SkillBonus {				//if Skill is unlearned then Bonus is -10 (IT'S NOT THE SAME AS IN GAME)
-			set { skillBonus = value;}
+		public int SkillBonus {             //if Skill is unlearned then Bonus is -10 (IT'S NOT THE SAME AS IN GAME)
+			set { skillBonus = value; }
 			get { return skillBonus; }
 		}
-
+		
+		//Constructor
 		public Skill(SkillProfile skillProfile) {
 			level = 1;
-			
 			name = skillProfile.Name;
 			description = skillProfile.Description;
+		}
+
+		public Skill(string skillname) {  //DEBUG DELETE LATER
+			level = 1;
+			name = skillname;
+		}
+
+		//To string  "skillname level (bonus)"
+		public override string ToString() {
+			return name.ToString() + 
+				" lvl" + Level.ToString() + 
+				" (" + SkillBonus.ToString() + ")";
 		}
 
 
@@ -42,7 +53,7 @@ namespace WHFR_ed2_NPC_Creator {
 			}
 		}
 
-		public void SetLvevel(int level) {
+		public void SetLevel(int level) {
 			this.level = level;
 		}
 

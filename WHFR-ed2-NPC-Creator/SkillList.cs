@@ -13,7 +13,7 @@ namespace WHFR_ed2_NPC_Creator {
 			get{ return skills; }
 		}
 
-		void advanceSkill(string skillName) {
+		public void advanceSkill(string skillName) {
 			foreach (Skill skill in skills) {
 				if(skill.ToString() == skillName) {
 					skill.Advance();
@@ -21,7 +21,14 @@ namespace WHFR_ed2_NPC_Creator {
 			}
 		}
 
-
+		public void addSkill(Skill skillAdded) {
+			foreach(Skill skill in skills) {
+				if(skill.Name == skillAdded.Name) {
+					return;
+				}
+			}
+			skills.Add(skillAdded);
+		}
 
 	}
 }
