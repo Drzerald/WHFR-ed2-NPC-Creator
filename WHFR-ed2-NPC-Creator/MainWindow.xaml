@@ -11,8 +11,8 @@
 			<ColumnDefinition Width="0*"/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		<Button x:Name="button" Content="Waaaaaa!!!" HorizontalAlignment="Left" Margin="1,389,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="1" Height="20"/>
-		<TextBox x:Name="textBox" HorizontalAlignment="Left" Height="145" Margin="1,227,0,0" TextWrapping="Wrap" Text="textBox for dieRoller Debug (easyer than Debug.Log())" VerticalAlignment="Top" Width="496" Grid.Column="1"/>
+		<Button x:Name="button" Content="roll" HorizontalAlignment="Left" Margin="10,336,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="1" Height="20"/>
+		<TextBox x:Name="textBox" HorizontalAlignment="Left" Height="145" Margin="10,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="496" Grid.Column="1"/>
 		<GroupBox x:Name="groupBox" Header="Cechy" HorizontalAlignment="Left" Height="171" Margin="1,10,0,0" VerticalAlignment="Top" Width="355" Grid.Column="1">
 			<Grid Margin="0,0,0,0">
 
@@ -37,38 +37,38 @@
 
 
 
-				<TextBox x:Name="textBox_WW_Roll" HorizontalAlignment="Left" Height="23" Margin="10,28,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center" />
-				<TextBox x:Name="textBox_WW_BaseRace" HorizontalAlignment="Left" Height="23" Margin="10,56,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_WW_Roll"		HorizontalAlignment="Left" Height="23" Margin="10,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center" />
+				<TextBox x:Name="textBox_WW_BaseRace"	HorizontalAlignment="Left" Height="23" Margin="10,56,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 
-				<TextBox x:Name="textBox_US_Roll" HorizontalAlignment="Left" Height="23" Margin="51,28,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_US_BaseRace" HorizontalAlignment="Left" Height="23" Margin="51,56,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_US_Roll"		HorizontalAlignment="Left" Height="23" Margin="51,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_US_BaseRace"	HorizontalAlignment="Left" Height="23" Margin="51,56,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 
-				<TextBox x:Name="textBox_K_Roll" HorizontalAlignment="Left" Height="23" Margin="92,28,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_K_BaseRace" HorizontalAlignment="Left" Height="23" Margin="92,56,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_K_Roll"		HorizontalAlignment="Left" Height="23" Margin="92,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_K_BaseRace"	HorizontalAlignment="Left" Height="23" Margin="92,56,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				
+				<TextBox x:Name="textBox_Odp_Roll"		HorizontalAlignment="Left" Height="23" Margin="133,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_Odp_BaseRace"	HorizontalAlignment="Left" Height="23" Margin="133,56,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 
-				<TextBox x:Name="textBox_Odp_Roll" HorizontalAlignment="Left" Height="23" Margin="133,28,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_Odp_BaseRace" HorizontalAlignment="Left" Height="23" Margin="133,56,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_Zw_Roll"		HorizontalAlignment="Left" Height="23" Margin="174,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_Zw_BaseRace"	HorizontalAlignment="Left" Height="23" Margin="174,56,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 
-				<TextBox x:Name="textBox_Zw_Roll" HorizontalAlignment="Left" Height="23" Margin="174,28,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_Zw_BaseRace" HorizontalAlignment="Left" Height="23" Margin="174,56,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_Int_Roll"		HorizontalAlignment="Left" Height="23" Margin="215,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_Int_BaseRace"	HorizontalAlignment="Left" Height="23" Margin="215,56,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 
-				<TextBox x:Name="textBox_Int_Roll" HorizontalAlignment="Left" Height="23" Margin="215,28,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_Int_BaseRace" HorizontalAlignment="Left" Height="23" Margin="215,56,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_SW_Roll"		HorizontalAlignment="Left" Height="23" Margin="256,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_SW_BaseRace"	HorizontalAlignment="Left" Height="23" Margin="256,56,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 
-				<TextBox x:Name="textBox_SW_Roll" HorizontalAlignment="Left" Height="23" Margin="256,28,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_SW_BaseRace" HorizontalAlignment="Left" Height="23" Margin="256,56,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_Ogl_Roll"		HorizontalAlignment="Left" Height="23" Margin="297,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_Ogl_BaseRace"	HorizontalAlignment="Left" Height="23" Margin="297,56,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 
-				<TextBox x:Name="textBox_Ogl_Roll" HorizontalAlignment="Left" Height="23" Margin="297,28,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_Ogl_BaseRace" HorizontalAlignment="Left" Height="23" Margin="297,56,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-
-				<TextBox x:Name="textBox_WW_ProfMod" HorizontalAlignment="Left" Height="23" Margin="10,84,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_US_ProfMod" HorizontalAlignment="Left" Height="23" Margin="51,84,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_K_ProfMod" HorizontalAlignment="Left" Height="23" Margin="92,84,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_Odp_ProfMod" HorizontalAlignment="Left" Height="23" Margin="133,84,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_Zw_ProfMod" HorizontalAlignment="Left" Height="23" Margin="174,84,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_Int_ProfMod" HorizontalAlignment="Left" Height="23" Margin="215,84,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_SW_ProfMod" HorizontalAlignment="Left" Height="23" Margin="256,84,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				<TextBox x:Name="textBox_Ogl_ProfMod" HorizontalAlignment="Left" Height="23" Margin="297,84,0,0" TextWrapping="Wrap" Text="WW" VerticalAlignment="Top" Width="36" TextAlignment="Center"/>
+				<TextBox x:Name="textBox_WW_ProfMod"	HorizontalAlignment="Left" Height="23" Margin="10,84,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_US_ProfMod"	HorizontalAlignment="Left" Height="23" Margin="51,84,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_K_ProfMod"		HorizontalAlignment="Left" Height="23" Margin="92,84,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_Odp_ProfMod"	HorizontalAlignment="Left" Height="23" Margin="133,84,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_Zw_ProfMod"	HorizontalAlignment="Left" Height="23" Margin="174,84,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_Int_ProfMod"	HorizontalAlignment="Left" Height="23" Margin="215,84,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_SW_ProfMod"	HorizontalAlignment="Left" Height="23" Margin="256,84,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
+				<TextBox x:Name="textBox_Ogl_ProfMod"	HorizontalAlignment="Left" Height="23" Margin="297,84,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36" TextAlignment="Center"/>
 
 			</Grid>
 		</GroupBox>

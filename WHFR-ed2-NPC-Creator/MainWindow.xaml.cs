@@ -30,11 +30,16 @@ namespace WHFR_ed2_NPC_Creator {
 			Skill skill = new Skill("Climbing");
 			skills.addSkill(skill);
 			skills.addSkill(skill);
-			
-			System.Diagnostics.Debug.WriteLine(skill.ToString());
-			skills.advanceSkill("Climbing");
-			System.Diagnostics.Debug.WriteLine(skill.ToString());
-			textBox.Text = skill.ToString();
+
+			for (int i = 0; i < 50; i++) {
+				System.Diagnostics.Debug.Write(die.rollD10().ToString() + ", ");
+			}
+			System.Diagnostics.Debug.Write("\n");
+
+			//System.Diagnostics.Debug.WriteLine(skill.ToString());
+			//skills.advanceSkill("Climbing");
+			//System.Diagnostics.Debug.WriteLine(skill.ToString());
+			//textBox.Text = skill.ToString();
 		}
 
 	}
