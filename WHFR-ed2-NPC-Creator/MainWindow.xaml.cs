@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +24,14 @@ namespace WHFR_ed2_NPC_Creator {
 			InitializeComponent();
 		}
 
+		private MainCharacteristics characteristicsFromRolls = new MainCharacteristics();
+		private MainCharacteristics characteristicsFromProffesion = new MainCharacteristics();
+		private MainCharacteristics characteristicsSum = new MainCharacteristics();
+
+		
+
+
+
 		private void Button_Click(object sender, RoutedEventArgs e) {
 			DieRoller die = new DieRoller();
 			textBox.Text = "";
@@ -41,6 +51,14 @@ namespace WHFR_ed2_NPC_Creator {
 			//System.Diagnostics.Debug.WriteLine(skill.ToString());
 			//textBox.Text = skill.ToString();
 		}
+
+
+
+		public event PropertyChangedEventHandler PropertyChanged;
+		private void OnPropertyChanged([CallerMemberName] string propertyName = null) {
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+
 
 	}
 }

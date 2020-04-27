@@ -37,7 +37,7 @@
 
 
 
-				<TextBox x:Name="textBox_WW_Roll"		HorizontalAlignment="Left" Height="23" Margin="10,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center" />
+				<TextBox x:Name="textBox_WW_Roll"		HorizontalAlignment="Left" Height="23" Margin="10,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 				<TextBox x:Name="textBox_WW_BaseRace"	HorizontalAlignment="Left" Height="23" Margin="10,56,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 
 				<TextBox x:Name="textBox_US_Roll"		HorizontalAlignment="Left" Height="23" Margin="51,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
