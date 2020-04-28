@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WHFR_ed2_NPC_Creator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="567" Width="800">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="0*"/>
@@ -45,7 +45,7 @@
 
 				<TextBox x:Name="textBox_K_Roll"		HorizontalAlignment="Left" Height="23" Margin="92,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 				<TextBox x:Name="textBox_K_BaseRace"	HorizontalAlignment="Left" Height="23" Margin="92,56,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
-				
+
 				<TextBox x:Name="textBox_Odp_Roll"		HorizontalAlignment="Left" Height="23" Margin="133,28,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 				<TextBox x:Name="textBox_Odp_BaseRace"	HorizontalAlignment="Left" Height="23" Margin="133,56,0,0"	TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="36"  TextAlignment="Center"/>
 
