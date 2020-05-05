@@ -18,7 +18,7 @@ namespace WHFR_ed2_NPC_Creator {
 
 		Profession[] professionHistory = new Profession[3];
 
-		public SkillList skills= new SkillList();
+		public SkillList skills = new SkillList();
 		public List<Talent> talents = new List<Talent>();
 		//public TalentList talens = new TalentList(); //Idea, Is Talent List class is importanee
 

@@ -78,6 +78,7 @@
     <Compile Include="Profession.cs" />
     <Compile Include="SideCharacteristics.cs" />
     <Compile Include="Skill.cs" />
+    <Compile Include="Skillid.cs" />
     <Compile Include="SkillList.cs" />
     <Compile Include="SkillProfile.cs" />
     <Compile Include="Talent.cs" />

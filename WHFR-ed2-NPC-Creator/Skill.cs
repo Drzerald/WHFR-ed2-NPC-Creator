@@ -27,15 +27,22 @@ namespace WHFR_ed2_NPC_Creator {
 		
 		//Constructor
 		public Skill(SkillProfile skillProfile) {
-			level = 1;
+			Id = skillProfile.Id;
+			level = 0;
 			name = skillProfile.Name;
 			description = skillProfile.Description;
 		}
+		public Skill(int idNum) {
+			Id = idNum;
+			level = 0;
 
-		public Skill(string skillname) {  //DEBUG DELETE LATER
-			level = 1;
-			name = skillname;
 		}
+
+
+		//		public Skill(string skillname) {  //DEBUG DELETE LATER
+		//			level = 1;
+		//			name = skillname;
+		//		}
 
 		//To string  "skillname level (bonus)"
 		public override string ToString() {
