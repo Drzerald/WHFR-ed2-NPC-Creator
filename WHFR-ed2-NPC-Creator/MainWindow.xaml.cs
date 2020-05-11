@@ -34,40 +34,8 @@ namespace WHFR_ed2_NPC_Creator {
 
 		private void Button_Click(object sender, RoutedEventArgs e) {
 
-			SkillList skillList = new SkillList();
-			skillList.advanceSkill(1);
-			skillList.advanceSkill("m1");
-			skillList.advanceSkill(2);
-			skillList.advanceSkill(2);
-			skillList.advanceSkill(0);
-			skillList.advanceSkill(4);
-			skillList.advanceSkill(4);
-			skillList.advanceSkill(4);
-			skillList.advanceSkill(4);
-			skillList.advanceSkill(4);
-			skillList.advanceSkill("Brzuchomówstwo");
-			foreach (Skill skill in skillList.skillsArray) {
-				System.Diagnostics.Debug.WriteLine( skill.ToString());
-			}
-
-			
-			//DieRoller die = new DieRoller();
-			//textBox.Text = "";
-
-			//SkillList skills = new SkillList();
-			//Skill skill = new Skill("Climbing");
-			//skills.addSkill(skill);
-			//skills.addSkill(skill);
-
-			//for (int i = 0; i < 50; i++) {
-			//	System.Diagnostics.Debug.Write(die.rollD10().ToString() + ", ");
-			//}
-			//System.Diagnostics.Debug.Write("\n");
-
-			//System.Diagnostics.Debug.WriteLine(skill.ToString());
-			//skills.advanceSkill("Climbing");
-			//System.Diagnostics.Debug.WriteLine(skill.ToString());
-			//textBox.Text = skill.ToString();
+			Character rozalia = new Character();
+			rozalia.debugPrint();
 		}
 
 

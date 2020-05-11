@@ -13,10 +13,10 @@ namespace WHFR_ed2_NPC_Creator
 		public int BaliscticSkills { get; set; } = 0;
 		private int strength = 0;
 		private int toughness = 0;
-		private int Agility { get; set; } = 0;
-		private int Intelligence { get; set; } = 0;
-		private int WillPower { get; set; } = 0;
-		private int Fellowship { get; set; } = 0;
+		public int Agility { get; set; } = 0;
+		public int Intelligence { get; set; } = 0;
+		public int WillPower { get; set; } = 0;
+		public int Fellowship { get; set; } = 0;
 
 		//Side
 		private int attacks { get; set; } = 1;

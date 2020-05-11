@@ -31,8 +31,6 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 
 
-
-
 		public void advanceSkill(string skillName) {
 			foreach (Skill skill in skillsArray) {
 				if(skill.Name == skillName) {
