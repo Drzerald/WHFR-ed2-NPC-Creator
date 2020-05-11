@@ -52,6 +52,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,11 +72,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Armor.cs" />
     <Compile Include="Character.cs" />
-    <Compile Include="characteristics.cs" />
+    <Compile Include="Characteristics.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Profession.cs" />
     <Compile Include="SideCharacteristics.cs" />
     <Compile Include="Skill.cs" />
+    <Compile Include="Skillid.cs" />
     <Compile Include="SkillList.cs" />
     <Compile Include="SkillProfile.cs" />
     <Compile Include="Talent.cs" />
@@ -84,6 +88,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TalentsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Weapon.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -117,7 +122,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
