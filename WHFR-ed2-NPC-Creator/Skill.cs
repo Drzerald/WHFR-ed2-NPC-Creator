@@ -9,14 +9,26 @@ namespace WHFR_ed2_NPC_Creator {
 
 		//Variable Declaration
 		protected int level;
+		protected bool isAdvanced;
 		protected int skillBonus;
+		protected string description;
 
 		// Get/Set 
 		public int Level {          //Skill level 
 			get { return level; }
 			set {
-				if (value < 0) { level = 0; } else if (value > 3) { level = 3; } else { level = value; }
-				SkillBonus = (level - 1) * 10;
+				if (value < 0) {
+					level = 0;
+				} else if (value > 3) {
+					level = 2;
+				} else {
+					level = value;
+				}
+				if (level == 0) {
+					SkillBonus = -20;
+				} else {
+					SkillBonus = (level - 1) * 10;
+				}
 			}
 		}
 
@@ -32,36 +44,39 @@ namespace WHFR_ed2_NPC_Creator {
 			name = skillProfile.Name;
 			description = skillProfile.Description;
 		}
+
 		public Skill(int idNum) {
 			Id = idNum;
-			level = 0;
-
+			Level = 0;
 		}
 
-
-		//		public Skill(string skillname) {  //DEBUG DELETE LATER
-		//			level = 1;
-		//			name = skillname;
-		//		}
+		public Skill(int idNum, string name, bool isAdv, string dsc) {
+			Id = idNum;
+			Name = name;
+			isAdvanced = isAdv;
+			description = dsc;
+			Level = 0;
+		}
 
 		//To string  "skillname level (bonus)"
 		public override string ToString() {
-			return name.ToString() + 
+			return Id.ToString() + ": " +
+				name.ToString() + 
 				" lvl" + Level.ToString() + 
 				" (" + SkillBonus.ToString() + ")";
 		}
 
 
 		public void Advance() {
-			if (level >= 3) {
-				level = 3;
+			if (Level >= 3) {
+				Level = 3;
 			} else {
-				level += 1;
+				Level += 1;
 			}
 		}
 
 		public void SetLevel(int level) {
-			this.level = level;
+			this.Level = level;
 		}
 
 	}

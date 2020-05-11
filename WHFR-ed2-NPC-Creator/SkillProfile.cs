@@ -10,6 +10,7 @@ namespace WHFR_ed2_NPC_Creator {
 
 		public int Id;
 		protected string name;
+
 		public string Name {
 			get { return name; }
 			set { name = value; }
