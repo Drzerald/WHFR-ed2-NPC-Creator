@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 namespace WHFR_ed2_NPC_Creator {
 	class SkillProfile {
 
+
+		public int Id;
 		protected string name;
+
 		public string Name {
 			get { return name; }
 			set { name = value; }
