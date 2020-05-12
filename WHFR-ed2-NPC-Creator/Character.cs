@@ -9,10 +9,10 @@ namespace WHFR_ed2_NPC_Creator {
 
 		public string name = "";
 
-		public Characteristics characteristicsFromRace = new Characteristics();
 		public Characteristics characteristicsFromRolls = new Characteristics();
 		public Characteristics characteristicsFromProfessions = new Characteristics();
 		public Race race;
+		public Profession profession;
 		public Characteristics characteristics = new Characteristics(); //THINK
 
 		Profession[] professionHistory = new Profession[3];
@@ -20,8 +20,9 @@ namespace WHFR_ed2_NPC_Creator {
 		public SkillList skills = new SkillList();
 		public List<Talent> talents = new List<Talent>();
 
-		public Character(int raceID) {
+		public Character(int raceID, int professionId) {
 			race = new Race(raceID);
+			profession = new Profession(professionId);
 			rerollCharateristics();
 			
 		}
@@ -41,11 +42,10 @@ namespace WHFR_ed2_NPC_Creator {
 
 		public void debugPrint() {
 			System.Diagnostics.Debug.WriteLine("race: " + race.Name);
-
-			int[] chars = characteristics.getMainCharacteristics();
-			foreach(int x in chars){
-				System.Diagnostics.Debug.Write(x.ToString() + ",");
-			}
+			race.characteristics.DebugPrint();
+			profession.debugPrint();
+			characteristicsFromRolls.DebugPrint();
+			characteristics.DebugPrint();
 			System.Diagnostics.Debug.Write("\n///SKILLS:\n");
 			foreach (Skill skill in skills.skillsArray) {
 				System.Diagnostics.Debug.WriteLine(skill.ToString());

@@ -45,15 +45,5 @@ namespace WHFR_ed2_NPC_Creator {
 				}
 			}
 		}
-
-		//		public void addSkill(Skill skillAdded) {
-		//			foreach(Skill skill in skills) {
-		//				if(skill.Name == skillAdded.Name) {
-		//					return;
-		//				}
-		//			}
-		//			skills.Add(skillAdded);
-		//		}
-
 	}
 }

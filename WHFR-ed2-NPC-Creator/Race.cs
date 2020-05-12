@@ -15,7 +15,6 @@ namespace WHFR_ed2_NPC_Creator {
 		public Race(int id) {
 			this.id = id;
 			string connectionStr = System.Configuration.ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
-
 			using (SqlConnection connection = new SqlConnection(connectionStr))
 			using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Races", connection)) {
 				connection.Open();
@@ -23,7 +22,6 @@ namespace WHFR_ed2_NPC_Creator {
 				dataAdapter.Fill(raceTable);
 
 				Name = raceTable.Rows[id]["Name"].ToString();
-
 				int[] arrayOfManiCharateristics={
 					(int)raceTable.Rows[id]["WS"],
 					(int)raceTable.Rows[id]["BS"],
@@ -36,7 +34,6 @@ namespace WHFR_ed2_NPC_Creator {
 				};
 				this.characteristics.setMainCharacteristics(arrayOfManiCharateristics);
 				 
-
 				connection.Close();
 			}
 

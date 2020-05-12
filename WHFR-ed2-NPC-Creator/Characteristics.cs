@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace WHFR_ed2_NPC_Creator
 {
-    class Characteristics
-    {
+	class Characteristics {
 		//Main 
 		public int WeaponSkills { get; set; } = 0;
 		public int BaliscticSkills { get; set; } = 0;
@@ -19,20 +18,21 @@ namespace WHFR_ed2_NPC_Creator
 		public int Fellowship { get; set; } = 0;
 
 		//Side
-		private int attacks { get; set; } = 1;
-		private int wounds { get; set; } = 0;
-		private int strengthBonus { get; set;}
-		private int toughnessBonus { get; set;}
-		private int mobility { get; set; } = 0;
-		private int magick { get; set; } = 0;
-		private int insanityPoints { get; set; } = 0;
-		private int fatePoints { get; set; } = 0;
+		public int Attacks { get; set; } = 1;
+		public int Wounds { get; set; } = 0;
+		private int strengthBonus { get; set; }
+		private int toughnessBonus { get; set; }
+		public int Mobility { get; set; } = 0;
+		public int Magick { get; set; } = 0;
+		public int InsanityPoints { get; set; } = 0;
+		public int FatePoints { get; set; } = 0;
 
 		//GETTER SETTER:
 		//Main
 		public int Strength {
 			get { return strength; }
-			set { strength = value;
+			set {
+				strength = value;
 				strengthBonus = (int)Math.Floor(strength / 10d);
 			}
 		}
@@ -58,8 +58,8 @@ namespace WHFR_ed2_NPC_Creator
 			return x;
 		}
 
-		public void setMainCharacteristics(int[] arrayOfMainCharacteristics ) {
-			if(arrayOfMainCharacteristics.Length == 8) {
+		public void setMainCharacteristics(int[] arrayOfMainCharacteristics) {
+			if (arrayOfMainCharacteristics.Length == 8) {
 				WeaponSkills = arrayOfMainCharacteristics[0];
 				BaliscticSkills = arrayOfMainCharacteristics[1];
 				Strength = arrayOfMainCharacteristics[2];
@@ -70,6 +70,29 @@ namespace WHFR_ed2_NPC_Creator
 				Fellowship = arrayOfMainCharacteristics[7];
 			}
 		}
-		
+
+
+		public void DebugPrint() {
+			System.Diagnostics.Debug.WriteLine("|WS |BS |S  |T  |AGI|INT|WP |FEL|");
+			System.Diagnostics.Debug.Write("|" + WeaponSkills + " ");
+			System.Diagnostics.Debug.Write("|" + BaliscticSkills + " ");
+			System.Diagnostics.Debug.Write("|" + Strength + " ");
+			System.Diagnostics.Debug.Write("|" + Toughness + " ");
+			System.Diagnostics.Debug.Write("|" + Agility + " ");
+			System.Diagnostics.Debug.Write("|" + Intelligence + " ");
+			System.Diagnostics.Debug.Write("|" + WillPower + " ");
+			System.Diagnostics.Debug.Write("|" + Fellowship + " |\n");
+			System.Diagnostics.Debug.WriteLine("| A | W |SB |TB |MOB|MAG|IP |FP |");
+			System.Diagnostics.Debug.Write("|" + Attacks + "  ");
+			System.Diagnostics.Debug.Write("|" + Wounds + "  ");
+			System.Diagnostics.Debug.Write("|" + StrengthBonus + "  ");
+			System.Diagnostics.Debug.Write("|" + ToughnessBonus + "  ");
+			System.Diagnostics.Debug.Write("|" + Mobility + "  ");
+			System.Diagnostics.Debug.Write("|" + Magick + "  ");
+			System.Diagnostics.Debug.Write("|" + InsanityPoints + "  ");
+			System.Diagnostics.Debug.Write("|" + FatePoints + "  |\n");
+		}
+
+
 	}
 }

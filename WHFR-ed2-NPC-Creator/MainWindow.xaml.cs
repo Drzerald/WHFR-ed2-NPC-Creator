@@ -34,13 +34,13 @@ namespace WHFR_ed2_NPC_Creator {
 
 		private void Button_Click(object sender, RoutedEventArgs e) {
 
-			Character rozalia = new Character(0);
+			Character rozalia = new Character(0,1);
 			rozalia.debugPrint();
 
-			Character elfozalia = new Character(1);
+			Character elfozalia = new Character(1,0);
 			elfozalia.debugPrint();
 
-			Character dwarfzalia = new Character(2);
+			Character dwarfzalia = new Character(2,1);
 			dwarfzalia.debugPrint();
 		}
 
