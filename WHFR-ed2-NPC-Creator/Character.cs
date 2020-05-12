@@ -9,14 +9,10 @@ namespace WHFR_ed2_NPC_Creator {
 
 		public string name = "";
 
-		
-
-
-
 		public Characteristics characteristicsFromRace = new Characteristics();
 		public Characteristics characteristicsFromRolls = new Characteristics();
-		public Characteristics characteristicsFromProffessions = new Characteristics();
-		
+		public Characteristics characteristicsFromProfessions = new Characteristics();
+		public Race race;
 		public Characteristics characteristics = new Characteristics(); //THINK
 
 		Profession[] professionHistory = new Profession[3];
@@ -24,8 +20,10 @@ namespace WHFR_ed2_NPC_Creator {
 		public SkillList skills = new SkillList();
 		public List<Talent> talents = new List<Talent>();
 
-		public Character() {
+		public Character(int raceID) {
+			race = new Race(raceID);
 			rerollCharateristics();
+			
 		}
 
 		public void rerollCharateristics() {
@@ -38,22 +36,33 @@ namespace WHFR_ed2_NPC_Creator {
 			characteristicsFromRolls.Intelligence = die.rollD10(2);
 			characteristicsFromRolls.WillPower = die.rollD10(2);
 			characteristicsFromRolls.Fellowship = die.rollD10(2);
+			refreshCharateristics();
 		}
 
 		public void debugPrint() {
-			System.Diagnostics.Debug.Print(
-				characteristicsFromRolls.WeaponSkills.ToString() + " " +
-				characteristicsFromRolls.BaliscticSkills.ToString() + " " +
-				characteristicsFromRolls.Strength.ToString() + " " +
-				characteristicsFromRolls.Toughness.ToString() + " " +
-				characteristicsFromRolls.Agility.ToString() + " " +
-				characteristicsFromRolls.Intelligence.ToString() + " " +
-				characteristicsFromRolls.WillPower.ToString() + " " +
-				characteristicsFromRolls.Fellowship.ToString()+"\n"
-			);
-			foreach(Skill skill in skills.skillsArray) {
-				System.Diagnostics.Debug.Print(skill.ToString());
+			System.Diagnostics.Debug.WriteLine("race: " + race.Name);
+
+			int[] chars = characteristics.getMainCharacteristics();
+			foreach(int x in chars){
+				System.Diagnostics.Debug.Write(x.ToString() + ",");
 			}
+			System.Diagnostics.Debug.Write("\n///SKILLS:\n");
+			foreach (Skill skill in skills.skillsArray) {
+				System.Diagnostics.Debug.WriteLine(skill.ToString());
+			}
+		}
+
+
+		private void refreshCharateristics() {
+			int[] characteristicsArray = { 0, 0, 0, 0, 0, 0, 0, 0 };
+			int[] characteristicsArrayRace = race.characteristics.getMainCharacteristics();
+			int[] characteristicsArrayRolls = characteristicsFromRolls.getMainCharacteristics();
+			for (int i = 0; i < 8; i++) {
+				characteristicsArray[i] += characteristicsArrayRace[i];
+				characteristicsArray[i] += characteristicsArrayRolls[i];
+			}
+
+			characteristics.setMainCharacteristics(characteristicsArray);
 		}
 	}
 }
