@@ -51,5 +51,25 @@ namespace WHFR_ed2_NPC_Creator
 		public int ToughnessBonus {
 			get { return toughnessBonus; }
 		}
+
+
+		public int[] getMainCharacteristics() {
+			int[] x = { WeaponSkills, BaliscticSkills, Strength, Toughness, Agility, Intelligence, WillPower, Fellowship };
+			return x;
+		}
+
+		public void setMainCharacteristics(int[] arrayOfMainCharacteristics ) {
+			if(arrayOfMainCharacteristics.Length == 8) {
+				WeaponSkills = arrayOfMainCharacteristics[0];
+				BaliscticSkills = arrayOfMainCharacteristics[1];
+				Strength = arrayOfMainCharacteristics[2];
+				Toughness = arrayOfMainCharacteristics[3];
+				Agility = arrayOfMainCharacteristics[4];
+				Intelligence = arrayOfMainCharacteristics[5];
+				WillPower = arrayOfMainCharacteristics[6];
+				Fellowship = arrayOfMainCharacteristics[7];
+			}
+		}
+		
 	}
 }
