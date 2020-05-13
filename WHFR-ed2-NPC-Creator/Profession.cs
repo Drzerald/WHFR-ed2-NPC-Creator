@@ -13,7 +13,7 @@ namespace WHFR_ed2_NPC_Creator {
 		private bool isAdvanced;
 
 		public Characteristics characteristics = new Characteristics();
-		private List<SkillProfile> skillProgression = new List<SkillProfile>();
+		public List<SkillProfile> skills = new List<SkillProfile>();
 		private List<Item> inventory = new List<Item>();
 		public List<Talent> talents = new List<Talent>();
 
@@ -42,15 +42,28 @@ namespace WHFR_ed2_NPC_Creator {
 				connection.Close();
 			}
 
-			string SQLQuerry = "SELECT Talents.Id FROM Talents INNER JOIN ProfessionTalents ON Talents.Id = ProfessionTalents.TalentId Where ProfessionTalents.ProfessionId = " + Id.ToString();
+			string SQLQuerryTalents = "SELECT Talents.Id FROM Talents INNER JOIN ProfessionTalents ON Talents.Id = ProfessionTalents.TalentId Where ProfessionTalents.ProfessionId = " + Id.ToString();
 			using (SqlConnection connection = new SqlConnection(connectionStr))
-			using (SqlDataAdapter dataAdapter = new SqlDataAdapter(SQLQuerry, connection)) {
+			using (SqlDataAdapter dataAdapter = new SqlDataAdapter(SQLQuerryTalents, connection)) {
 				connection.Open();
 				System.Data.DataTable profesionTable = new System.Data.DataTable();
 				dataAdapter.Fill(profesionTable);
 				int numberOfRecords = profesionTable.Select().Length;
 				for (int i = 0; i< numberOfRecords; i++) {
 					talents.Add(new Talent((int)profesionTable.Rows[i]["Id"]));
+				}
+				connection.Close();
+			}
+
+			string SQLQuerrySkills = "SELECT Skills.Id FROM Skills INNER JOIN ProfessionSkills ON Skills.Id = ProfessionSkills.SkillId Where ProfessionSkills.ProfessionId = " + Id.ToString();
+			using (SqlConnection connection = new SqlConnection(connectionStr))
+			using (SqlDataAdapter dataAdapter = new SqlDataAdapter(SQLQuerrySkills, connection)) {
+				connection.Open();
+				System.Data.DataTable profesionTable = new System.Data.DataTable();
+				dataAdapter.Fill(profesionTable);
+				int numberOfRecords = profesionTable.Select().Length;
+				for (int i = 0; i < numberOfRecords; i++) {
+					skills.Add(new SkillProfile((int)profesionTable.Rows[i]["Id"]));
 				}
 				connection.Close();
 			}

@@ -38,30 +38,20 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 		
 		//Constructor
-		public Skill(SkillProfile skillProfile) {
-			Id = skillProfile.Id;
-			level = 0;
-			name = skillProfile.Name;
-			description = skillProfile.Description;
+		public Skill(SkillProfile skillProfile) : base (skillProfile.Id) {
+			Level = 0;
+
 		}
 
-		public Skill(int idNum) {
-			Id = idNum;
+		public Skill(int idNum) : base(idNum)  {
 			Level = 0;
 		}
 
-		public Skill(int idNum, string name, bool isAdv, string dsc) {
-			Id = idNum;
-			Name = name;
-			isAdvanced = isAdv;
-			description = dsc;
-			Level = 0;
-		}
 
 		//To string  "skillname level (bonus)"
 		public override string ToString() {
 			return Id.ToString() + ": " +
-				name.ToString() + 
+				Name.ToString() + 
 				" lvl" + Level.ToString() + 
 				" (" + SkillBonus.ToString() + ")";
 		}
@@ -77,6 +67,10 @@ namespace WHFR_ed2_NPC_Creator {
 
 		public void SetLevel(int level) {
 			this.Level = level;
+		}
+
+		public void Zero() {
+			level = 0;
 		}
 
 	}

@@ -74,23 +74,23 @@ namespace WHFR_ed2_NPC_Creator
 
 		public void DebugPrint() {
 			System.Diagnostics.Debug.WriteLine("|WS |BS |S  |T  |AGI|INT|WP |FEL|");
-			System.Diagnostics.Debug.Write("|" + WeaponSkills + " ");
-			System.Diagnostics.Debug.Write("|" + BaliscticSkills + " ");
-			System.Diagnostics.Debug.Write("|" + Strength + " ");
-			System.Diagnostics.Debug.Write("|" + Toughness + " ");
-			System.Diagnostics.Debug.Write("|" + Agility + " ");
-			System.Diagnostics.Debug.Write("|" + Intelligence + " ");
-			System.Diagnostics.Debug.Write("|" + WillPower + " ");
-			System.Diagnostics.Debug.Write("|" + Fellowship + " |\n");
+			System.Diagnostics.Debug.Write("|" + WeaponSkills.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + BaliscticSkills.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + Strength.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + Toughness.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + Agility.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + Intelligence.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + WillPower.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + Fellowship.ToString("D2") + " |\n");
 			System.Diagnostics.Debug.WriteLine("| A | W |SB |TB |MOB|MAG|IP |FP |");
-			System.Diagnostics.Debug.Write("|" + Attacks + "  ");
-			System.Diagnostics.Debug.Write("|" + Wounds + "  ");
-			System.Diagnostics.Debug.Write("|" + StrengthBonus + "  ");
-			System.Diagnostics.Debug.Write("|" + ToughnessBonus + "  ");
-			System.Diagnostics.Debug.Write("|" + Mobility + "  ");
-			System.Diagnostics.Debug.Write("|" + Magick + "  ");
-			System.Diagnostics.Debug.Write("|" + InsanityPoints + "  ");
-			System.Diagnostics.Debug.Write("|" + FatePoints + "  |\n");
+			System.Diagnostics.Debug.Write("|" + Attacks.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + Wounds.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + StrengthBonus.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + ToughnessBonus.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + Mobility.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + Magick.ToString("D2") + " ");
+			System.Diagnostics.Debug.Write("|" + InsanityPoints.ToString("D2") + "  ");
+			System.Diagnostics.Debug.Write("|" + FatePoints.ToString("D2") + " |\n\n");
 		}
 
 

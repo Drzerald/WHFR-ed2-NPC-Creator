@@ -10,7 +10,7 @@ using System.Configuration;
 namespace WHFR_ed2_NPC_Creator {
 	class SkillList {
 
-		public Skill[] skillsArray = new Skill[40];
+		public Skill[] skillsArray;
 
 		public SkillList() {
 			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
@@ -24,7 +24,7 @@ namespace WHFR_ed2_NPC_Creator {
 				int numberOfRecords = skillTable.Select().Length;
 				skillsArray = new Skill[numberOfRecords];
 				for (int i = 0; i < numberOfRecords; i++) {
-					skillsArray[i] = new Skill((int)skillTable.Rows[i]["Id"], skillTable.Rows[i]["name"].ToString(),false,"");
+					skillsArray[i] = new Skill((int)skillTable.Rows[i]["Id"]);
 				}
 				connection.Close();
 			}
@@ -43,6 +43,12 @@ namespace WHFR_ed2_NPC_Creator {
 				if (skill.Id == Id) {
 					skill.Advance();
 				}
+			}
+		}
+
+		public void Zero() {
+			foreach(Skill skill in skillsArray) {
+				skill.Zero();
 			}
 		}
 	}
