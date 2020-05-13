@@ -89,7 +89,7 @@ namespace WHFR_ed2_NPC_Creator
 			System.Diagnostics.Debug.Write("|" + ToughnessBonus.ToString("D2") + " ");
 			System.Diagnostics.Debug.Write("|" + Mobility.ToString("D2") + " ");
 			System.Diagnostics.Debug.Write("|" + Magick.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + InsanityPoints.ToString("D2") + "  ");
+			System.Diagnostics.Debug.Write("|" + InsanityPoints.ToString("D2") + " ");
 			System.Diagnostics.Debug.Write("|" + FatePoints.ToString("D2") + " |\n\n");
 		}
 

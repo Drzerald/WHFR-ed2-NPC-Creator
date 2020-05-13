@@ -32,7 +32,7 @@ namespace WHFR_ed2_NPC_Creator {
 				dataAdapter.Fill(skillsTable);
 
 				Name = skillsTable.Rows[id]["name"].ToString();
-				IsAdvanced = (bool)skillsTable.Rows[id]["isAdvanced"];
+				IsAdvanced = (bool)(skillsTable.Rows[id]["isAdvanced"]);
 				SkillCharacteristic = skillsTable.Rows[id]["SkillCharacteristic"].ToString();
 			
 				connection.Close();

@@ -28,5 +28,9 @@ namespace WHFR_ed2_NPC_Creator {
 				connection.Close();
 			}
 		}
+
+		public override string ToString() {
+			return Id.ToString()+ " " + Name;
+		}
 	}
 }

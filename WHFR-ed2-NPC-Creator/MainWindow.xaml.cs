@@ -34,8 +34,9 @@ namespace WHFR_ed2_NPC_Creator {
 
 		private void Button_Click(object sender, RoutedEventArgs e) {
 
-			Character rozalia = new Character(0,1,0);
-			rozalia.debugPrint();
+			Character character = new Character(0,1,0);
+			character.debugPrint();
+
 
 		}
 

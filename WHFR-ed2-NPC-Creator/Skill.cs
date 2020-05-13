@@ -40,7 +40,6 @@ namespace WHFR_ed2_NPC_Creator {
 		//Constructor
 		public Skill(SkillProfile skillProfile) : base (skillProfile.Id) {
 			Level = 0;
-
 		}
 
 		public Skill(int idNum) : base(idNum)  {
@@ -50,10 +49,12 @@ namespace WHFR_ed2_NPC_Creator {
 
 		//To string  "skillname level (bonus)"
 		public override string ToString() {
-			return Id.ToString() + ": " +
-				Name.ToString() + 
-				" lvl" + Level.ToString() + 
-				" (" + SkillBonus.ToString() + ")";
+			string txt = Id.ToString() + ": " +
+				Name.ToString() +
+				" lvl" + Level.ToString() +
+				" (" + SkillBonus.ToString() + ") ";
+			if (isAdvanced) { txt += "Adv"; }
+			return txt;
 		}
 
 

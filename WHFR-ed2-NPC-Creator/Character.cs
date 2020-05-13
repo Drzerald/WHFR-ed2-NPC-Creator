@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WHFR_ed2_NPC_Creator {
 	class Character {
 
-		public string name = "";
+		public string Name = "";
 
 		public Characteristics characteristicsFromRolls = new Characteristics();
 		public Characteristics characteristicsFromProfessions = new Characteristics();
@@ -46,18 +46,31 @@ namespace WHFR_ed2_NPC_Creator {
 			characteristicsFromRolls.WillPower = die.rollD10(2);
 			characteristicsFromRolls.Fellowship = die.rollD10(2);
 			refreshSkills();
+			refreshTalents();
 			refreshCharateristics();
 		}
 
 		public void debugPrint() {
-			System.Diagnostics.Debug.WriteLine("race: " + race.Name);
+			System.Diagnostics.Debug.WriteLine("Race: " + race.Name);
+			System.Diagnostics.Debug.WriteLine("Charateristics from: Race");
 			race.characteristics.DebugPrint();
-			//professions[0].debugPrint();
+			System.Diagnostics.Debug.WriteLine("Charateristics from: Rolls");
 			characteristicsFromRolls.DebugPrint();
+			System.Diagnostics.Debug.WriteLine("Charateristics Output:");
 			characteristics.DebugPrint();
-			System.Diagnostics.Debug.Write("\n///SKILLS:\n");
+
+			System.Diagnostics.Debug.WriteLine("Charateristics from Professions:");
+			foreach (int num in getCharacteristicsFromProfessions()) {
+				System.Diagnostics.Debug.Write(num.ToString("D2") + " ");
+			}
+
+			System.Diagnostics.Debug.Write("\n\n///SKILLS:\n");
 			foreach (Skill skill in skills.skillsArray) {
 				System.Diagnostics.Debug.WriteLine(skill.ToString());
+			}
+			System.Diagnostics.Debug.Write("\n///TALENTS:\n");
+			foreach (Talent talent in talents) {
+				System.Diagnostics.Debug.WriteLine(talent.ToString());
 			}
 		}
 
@@ -92,5 +105,32 @@ namespace WHFR_ed2_NPC_Creator {
 				}
 			}
 		}
+
+		private int[] getCharacteristicsFromProfessions() {
+			int[] characteristicsArrayProfessions = {0,0,0,0,0,0,0,0};
+			foreach (Profession profession in professions) {
+				int[] array = profession.characteristics.getMainCharacteristics();
+				for (int i = 0; i< 8; i++) {
+					if (characteristicsArrayProfessions[i] < array[i]) {
+						characteristicsArrayProfessions[i] = array[i];
+					}
+				}
+			}
+			return characteristicsArrayProfessions;
+		}
+
+		private void refreshTalents() {
+			List<int> list = new List<int>();
+			foreach (Profession profession in professions) {
+				foreach(Talent talent in profession.talents) {
+					if(!list.Contains(talent.Id)) {
+						list.Add(talent.Id);
+						talents.Add(talent);
+					}
+				}
+			}
+		}
+
+
 	}
 }
