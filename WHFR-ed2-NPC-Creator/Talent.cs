@@ -34,3 +34,4 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 	}
 }
+

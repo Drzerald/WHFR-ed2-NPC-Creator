@@ -37,6 +37,7 @@ namespace WHFR_ed2_NPC_Creator
 			}
 		}
 
+
 		public int Toughness {
 			get { return toughness; }
 			set {

@@ -42,6 +42,7 @@ namespace WHFR_ed2_NPC_Creator {
 				connection.Close();
 			}
 
+
 			string SQLQuerryTalents = "SELECT Talents.Id FROM Talents INNER JOIN ProfessionTalents ON Talents.Id = ProfessionTalents.TalentId Where ProfessionTalents.ProfessionId = " + Id.ToString();
 			using (SqlConnection connection = new SqlConnection(connectionStr))
 			using (SqlDataAdapter dataAdapter = new SqlDataAdapter(SQLQuerryTalents, connection)) {
