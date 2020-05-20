@@ -81,6 +81,8 @@ namespace WHFR_ed2_NPC_Creator {
 
 			int[] characteristicsArrayRace = race.characteristics.getMainCharacteristics();
 			int[] characteristicsArrayRolls = characteristicsFromRolls.getMainCharacteristics();
+			int attacksProf = 0, magickProf = 0, mobilityProf = 0, woundsProf = 0;
+			//from Profession
 			foreach (Profession profession in professions) {
 				int[] array = profession.characteristics.getMainCharacteristics();
 				for (int i = 0; i < 8; i++) {
@@ -88,13 +90,26 @@ namespace WHFR_ed2_NPC_Creator {
 						characteristicsArrayProfessions[i] = array[i];
 					}
 				}
+				if (profession.characteristics.Attacks > attacksProf) { attacksProf = profession.characteristics.Attacks; }
+				if (profession.characteristics.Wounds > woundsProf) { woundsProf = profession.characteristics.Wounds; }
+				if (profession.characteristics.Mobility > mobilityProf) { mobilityProf = profession.characteristics.Mobility; }
+				if (profession.characteristics.Magick > magickProf) { magickProf = profession.characteristics.Magick; }
 			}
+			//Rolls + Prof + Race (main)
 			for (int i = 0; i < 8; i++) {
 				characteristicsArray[i] += characteristicsArrayRace[i];
 				characteristicsArray[i] += characteristicsArrayRolls[i];
 				characteristicsArray[i] += characteristicsArrayProfessions[i];
 			}
+			// Prof + Race (side)
+			characteristics.Attacks = attacksProf + race.characteristics.Attacks;
+			characteristics.Wounds = woundsProf + race.characteristics.Wounds;
+			characteristics.Mobility = mobilityProf + race.characteristics.Mobility;
+			characteristics.Magick = magickProf + race.characteristics.Magick;
+			//Seting
 			characteristics.setMainCharacteristics(characteristicsArray);
+			
+			
 		}
 
 		private void refreshSkills() {

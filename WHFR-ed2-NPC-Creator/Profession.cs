@@ -17,6 +17,7 @@ namespace WHFR_ed2_NPC_Creator {
 		private List<Item> inventory = new List<Item>();
 		public List<Talent> talents = new List<Talent>();
 
+		//Constructor
 		public Profession(int id) {
 			this.Id = id;
 			string connectionStr = System.Configuration.ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
@@ -39,9 +40,13 @@ namespace WHFR_ed2_NPC_Creator {
 					(int)profesionTable.Rows[id]["Fel"],
 				};
 				characteristics.setMainCharacteristics(arrayOfMainCharateristics);
+				characteristics.Attacks = (int)profesionTable.Rows[id]["A"];
+				characteristics.Wounds = (int)profesionTable.Rows[id]["W"];
+				characteristics.Mobility = (int)profesionTable.Rows[id]["Mob"];
+				characteristics.Magick = (int)profesionTable.Rows[id]["mob"];
+
 				connection.Close();
 			}
-
 
 			string SQLQuerryTalents = "SELECT Talents.Id FROM Talents INNER JOIN ProfessionTalents ON Talents.Id = ProfessionTalents.TalentId Where ProfessionTalents.ProfessionId = " + Id.ToString();
 			using (SqlConnection connection = new SqlConnection(connectionStr))
@@ -70,7 +75,7 @@ namespace WHFR_ed2_NPC_Creator {
 			}
 		}
 
-
+		//DEBUG:
 		public void debugPrint() {
 			System.Diagnostics.Debug.WriteLine("PROFESSION: " + Name);
 			System.Diagnostics.Debug.WriteLine("	talents: " );

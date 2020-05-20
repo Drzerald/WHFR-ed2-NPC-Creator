@@ -59,6 +59,7 @@ namespace WHFR_ed2_NPC_Creator
 			return x;
 		}
 
+
 		public void setMainCharacteristics(int[] arrayOfMainCharacteristics) {
 			if (arrayOfMainCharacteristics.Length == 8) {
 				WeaponSkills = arrayOfMainCharacteristics[0];
@@ -72,8 +73,17 @@ namespace WHFR_ed2_NPC_Creator
 			}
 		}
 
+		public int[] getSideCharacteristics() {
+			int[] x = { Attacks, Wounds, StrengthBonus, ToughnessBonus, Mobility, Magick, InsanityPoints, FatePoints };
+			return x;
+		}
+
 
 		public void DebugPrint() {
+
+
+
+			/*
 			System.Diagnostics.Debug.WriteLine("|WS |BS |S  |T  |AGI|INT|WP |FEL|");
 			System.Diagnostics.Debug.Write("|" + WeaponSkills.ToString("D2") + " ");
 			System.Diagnostics.Debug.Write("|" + BaliscticSkills.ToString("D2") + " ");
@@ -92,6 +102,20 @@ namespace WHFR_ed2_NPC_Creator
 			System.Diagnostics.Debug.Write("|" + Magick.ToString("D2") + " ");
 			System.Diagnostics.Debug.Write("|" + InsanityPoints.ToString("D2") + " ");
 			System.Diagnostics.Debug.Write("|" + FatePoints.ToString("D2") + " |\n\n");
+		*/
+			string line = "| WS| BS| S | T |Agi|Int| WP|Fel|";
+			System.Diagnostics.Debug.WriteLine(line);
+			line = "| {0:d2}| {1:d2}| {2:d2}| {3:d2}| {4:d2}| {5:d2}| {6:d2}| {7:d2}|";
+			int[] array = getMainCharacteristics();
+			line = String.Format(line, array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]);
+			System.Diagnostics.Debug.WriteLine(line);
+
+			line = "| A | W | SB| TB|Mob|Mag| IP| FP|";
+			System.Diagnostics.Debug.WriteLine(line);
+			line = "| {0:d2}| {1:d2}| {2:d2}| {3:d2}| {4:d2}| {5:d2}| {6:d2}| {7:d2}|";
+			array = getSideCharacteristics();
+			line = String.Format(line, array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]);
+			System.Diagnostics.Debug.WriteLine(line);
 		}
 
 

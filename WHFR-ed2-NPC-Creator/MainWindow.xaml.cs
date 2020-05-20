@@ -28,18 +28,12 @@ namespace WHFR_ed2_NPC_Creator {
 		private MainCharacteristics characteristicsFromProffesion = new MainCharacteristics();
 		private MainCharacteristics characteristicsSum = new MainCharacteristics();
 
-		
-
 
 
 		private void Button_Click(object sender, RoutedEventArgs e) {
-
-			Character character = new Character(0,1,0);
+			Character character = new Character(2,1,0);
 			character.debugPrint();
-
-
 		}
-
 
 
 		public event PropertyChangedEventHandler PropertyChanged;
