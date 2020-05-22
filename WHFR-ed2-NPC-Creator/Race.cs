@@ -7,9 +7,9 @@ using System.Data.SqlClient;
 
 namespace WHFR_ed2_NPC_Creator {
 	class Race {
-		public int id;
-		public string Name;
-		public Characteristics characteristics = new Characteristics();
+		public int id { get; set; }
+		public string Name { get; set; }
+		public Characteristics Characteristics { get; set; } = new Characteristics();
 
 
 		public Race(int id) {
@@ -33,10 +33,10 @@ namespace WHFR_ed2_NPC_Creator {
 					(int)raceTable.Rows[id]["WP"],
 					(int)raceTable.Rows[id]["Fel"],
 				};
-				this.characteristics.setMainCharacteristics(arrayOfManiCharateristics);
-				characteristics.Attacks = int.Parse(raceTable.Rows[id]["A"].ToString());
-				this.characteristics.Mobility = (int)raceTable.Rows[id]["Mob"];
-				this.characteristics.Magick = (int)raceTable.Rows[id]["Mag"];
+				this.Characteristics.setMainCharacteristics(arrayOfManiCharateristics);
+				Characteristics.Attacks = int.Parse(raceTable.Rows[id]["A"].ToString());
+				this.Characteristics.Mobility = (int)raceTable.Rows[id]["Mob"];
+				this.Characteristics.Magick = (int)raceTable.Rows[id]["Mag"];
 
 				connection.Close();
 
@@ -49,8 +49,8 @@ namespace WHFR_ed2_NPC_Creator {
 				connection.Open();
 				System.Data.DataTable table = new System.Data.DataTable();
 				dataAdapter.Fill(table);
-				characteristics.Wounds = (int)table.Rows[rollforWouds][id + 1];
-				System.Diagnostics.Debug.WriteLine(String.Format("Roll Value {0:d} Wouds val {1:d}", rollforWouds, characteristics.Wounds));
+				Characteristics.Wounds = (int)table.Rows[rollforWouds][id + 1];
+				System.Diagnostics.Debug.WriteLine(String.Format("Roll Value {0:d} Wouds val {1:d}", rollforWouds, Characteristics.Wounds));
 			}
 
 		}

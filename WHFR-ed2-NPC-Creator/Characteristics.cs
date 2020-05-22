@@ -81,28 +81,6 @@ namespace WHFR_ed2_NPC_Creator
 
 		public void DebugPrint() {
 
-
-
-			/*
-			System.Diagnostics.Debug.WriteLine("|WS |BS |S  |T  |AGI|INT|WP |FEL|");
-			System.Diagnostics.Debug.Write("|" + WeaponSkills.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + BaliscticSkills.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + Strength.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + Toughness.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + Agility.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + Intelligence.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + WillPower.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + Fellowship.ToString("D2") + " |\n");
-			System.Diagnostics.Debug.WriteLine("| A | W |SB |TB |MOB|MAG|IP |FP |");
-			System.Diagnostics.Debug.Write("|" + Attacks.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + Wounds.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + StrengthBonus.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + ToughnessBonus.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + Mobility.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + Magick.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + InsanityPoints.ToString("D2") + " ");
-			System.Diagnostics.Debug.Write("|" + FatePoints.ToString("D2") + " |\n\n");
-		*/
 			string line = "| WS| BS| S | T |Agi|Int| WP|Fel|";
 			System.Diagnostics.Debug.WriteLine(line);
 			line = "| {0:d2}| {1:d2}| {2:d2}| {3:d2}| {4:d2}| {5:d2}| {6:d2}| {7:d2}|";

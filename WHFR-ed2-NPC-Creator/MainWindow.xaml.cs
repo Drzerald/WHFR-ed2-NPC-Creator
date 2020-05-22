@@ -24,15 +24,12 @@ namespace WHFR_ed2_NPC_Creator {
 			InitializeComponent();
 		}
 
-		private MainCharacteristics characteristicsFromRolls = new MainCharacteristics();
-		private MainCharacteristics characteristicsFromProffesion = new MainCharacteristics();
-		private MainCharacteristics characteristicsSum = new MainCharacteristics();
-
-
 
 		private void Button_Click(object sender, RoutedEventArgs e) {
 			Character character = new Character(2,1,0);
 			character.debugPrint();
+			RaceLabel.DataContext = character.Race;
+			groupBox.DataContext = character;
 		}
 
 

@@ -12,7 +12,7 @@ namespace WHFR_ed2_NPC_Creator {
 		public string Name { get; }
 		private bool isAdvanced;
 
-		public Characteristics characteristics = new Characteristics();
+		public Characteristics Characteristics { get; set; } = new Characteristics();
 		public List<SkillProfile> skills = new List<SkillProfile>();
 		private List<Item> inventory = new List<Item>();
 		public List<Talent> talents = new List<Talent>();
@@ -39,11 +39,11 @@ namespace WHFR_ed2_NPC_Creator {
 					(int)profesionTable.Rows[id]["WP"],
 					(int)profesionTable.Rows[id]["Fel"],
 				};
-				characteristics.setMainCharacteristics(arrayOfMainCharateristics);
-				characteristics.Attacks = (int)profesionTable.Rows[id]["A"];
-				characteristics.Wounds = (int)profesionTable.Rows[id]["W"];
-				characteristics.Mobility = (int)profesionTable.Rows[id]["Mob"];
-				characteristics.Magick = (int)profesionTable.Rows[id]["mob"];
+				Characteristics.setMainCharacteristics(arrayOfMainCharateristics);
+				Characteristics.Attacks = (int)profesionTable.Rows[id]["A"];
+				Characteristics.Wounds = (int)profesionTable.Rows[id]["W"];
+				Characteristics.Mobility = (int)profesionTable.Rows[id]["Mob"];
+				Characteristics.Magick = (int)profesionTable.Rows[id]["mob"];
 
 				connection.Close();
 			}
