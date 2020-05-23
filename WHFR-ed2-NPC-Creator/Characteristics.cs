@@ -10,6 +10,7 @@ namespace WHFR_ed2_NPC_Creator
 {
 	class Characteristics : INotifyPropertyChanged{
 		public event PropertyChangedEventHandler PropertyChanged;
+
 		public event Action OnCharacteristicChange = delegate { };
 		//Main 
 		private int weaponSkills = 0;
@@ -38,7 +39,7 @@ namespace WHFR_ed2_NPC_Creator
 			set {
 				weaponSkills = value;
 				OnCharacteristicChange();
-				OnPropertyChanged("WeaponSkills");
+				OnPropertyChanged();
 			}
 		}
 
@@ -58,6 +59,7 @@ namespace WHFR_ed2_NPC_Creator
 				StrengthBonus = (int)Math.Floor(strength / 10d);
 				OnCharacteristicChange();
 				OnPropertyChanged();
+				OnPropertyChanged("StrengthBonus");
 			}
 		}
 
@@ -68,6 +70,7 @@ namespace WHFR_ed2_NPC_Creator
 				ToughnessBonus = (int)Math.Floor(toughness / 10d);
 				OnCharacteristicChange();
 				OnPropertyChanged();
+				OnPropertyChanged("ToughnessBonus");
 			}
 		}
 
@@ -113,7 +116,7 @@ namespace WHFR_ed2_NPC_Creator
 			set {
 				attacks = value;
 				OnCharacteristicChange();
-				//OnPropertyChanged();
+				OnPropertyChanged();
 			}
 		}
 		public int Wounds {
@@ -121,7 +124,7 @@ namespace WHFR_ed2_NPC_Creator
 			set {
 				wounds = value;
 				OnCharacteristicChange();
-				//OnPropertyChanged();
+				OnPropertyChanged();
 			}
 		}
 
@@ -130,7 +133,7 @@ namespace WHFR_ed2_NPC_Creator
 			set {
 				mobility = value;
 				OnCharacteristicChange();
-				//OnPropertyChanged();
+				OnPropertyChanged();
 			}
 		}
 
@@ -139,7 +142,7 @@ namespace WHFR_ed2_NPC_Creator
 			set {
 				magick = value;
 				OnCharacteristicChange();
-				//OnPropertyChanged();
+				OnPropertyChanged();
 			}
 		}
 
@@ -148,7 +151,7 @@ namespace WHFR_ed2_NPC_Creator
 			set {
 				insanityPoints = value;
 				OnCharacteristicChange();
-				//OnPropertyChanged();
+				OnPropertyChanged();
 			}
 		}
 
@@ -157,7 +160,7 @@ namespace WHFR_ed2_NPC_Creator
 			set {
 				fatePoints = value;
 				OnCharacteristicChange();
-				//OnPropertyChanged();
+				OnPropertyChanged();
 			}
 		}
 
@@ -177,6 +180,7 @@ namespace WHFR_ed2_NPC_Creator
 				Intelligence = arrayOfMainCharacteristics[5];
 				WillPower = arrayOfMainCharacteristics[6];
 				Fellowship = arrayOfMainCharacteristics[7];
+				
 			}
 		}
 

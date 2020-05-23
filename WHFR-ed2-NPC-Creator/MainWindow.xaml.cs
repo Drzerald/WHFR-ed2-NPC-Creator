@@ -31,15 +31,14 @@ namespace WHFR_ed2_NPC_Creator {
 			
 			listBox_Skills.DataContext = character.skills;
 
-			ww1.DataContext = character.CharacteristicsFromRolls;
-			WW4.DataContext = character.Characteristics;
-
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e) {
 			character.debugPrint();
-			
+		}
 
+		private void Button_Chars(object sender, RoutedEventArgs e) {
+			character.Characteristics.DebugPrint();
 		}
 
 

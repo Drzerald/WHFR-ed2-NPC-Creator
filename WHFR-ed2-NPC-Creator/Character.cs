@@ -25,6 +25,7 @@ namespace WHFR_ed2_NPC_Creator {
 			Professions.Add(new Profession(professionId));
 			rerollCharateristics();
 			Race.Characteristics.OnCharacteristicChange += recalculate;
+			CharacteristicsFromRolls.OnCharacteristicChange += recalculate;
 		}
 
 		public Character(int raceID, int professionId0, int professionId1) {
@@ -33,6 +34,7 @@ namespace WHFR_ed2_NPC_Creator {
 			Professions.Add(new Profession(professionId1));
 			rerollCharateristics();
 			Race.Characteristics.OnCharacteristicChange += recalculate;
+			CharacteristicsFromRolls.OnCharacteristicChange += recalculate;
 		}
 
 		public void rerollCharateristics() {
