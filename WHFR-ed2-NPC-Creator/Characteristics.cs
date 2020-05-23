@@ -59,7 +59,6 @@ namespace WHFR_ed2_NPC_Creator
 			return x;
 		}
 
-
 		public void setMainCharacteristics(int[] arrayOfMainCharacteristics) {
 			if (arrayOfMainCharacteristics.Length == 8) {
 				WeaponSkills = arrayOfMainCharacteristics[0];

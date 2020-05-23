@@ -9,7 +9,7 @@ namespace WHFR_ed2_NPC_Creator {
 
 		public string Name = "";
 
-		public Characteristics CharacteristicsFromRolls { get; set; } = new Characteristics() ;
+		public Characteristics CharacteristicsFromRolls { get; set; } = new Characteristics();
 		public Characteristics CharacteristicsFromProfessions { get; set; } = new Characteristics();
 		public Race Race { get; set; }
 		public List<Profession> professions = new List<Profession>();
@@ -17,8 +17,8 @@ namespace WHFR_ed2_NPC_Creator {
 
 		Profession[] professionHistory = new Profession[3];
 
-		public SkillList skills = new SkillList();
-		public List<Talent> talents = new List<Talent>();
+		public SkillList skills { get; set; } = new SkillList();
+		public List<Talent> Talents { get; set; } = new List<Talent>();
  
 
 		public Character(int raceID, int professionId) {
@@ -69,13 +69,13 @@ namespace WHFR_ed2_NPC_Creator {
 				System.Diagnostics.Debug.WriteLine(skill.ToString());
 			}
 			System.Diagnostics.Debug.Write("\n///TALENTS:\n");
-			foreach (Talent talent in talents) {
+			foreach (Talent talent in Talents) {
 				System.Diagnostics.Debug.WriteLine(talent.ToString());
 			}
 		}
 
 
-		private void updateCharateristics() {
+		public void updateCharateristics() {
 			updateProfessionCharateristics();
 			int[] characteristicsArray = { 0, 0, 0, 0, 0, 0, 0, 0 };
 			int[] characteristicsArrayRace = Race.Characteristics.getMainCharacteristics();
@@ -151,7 +151,7 @@ namespace WHFR_ed2_NPC_Creator {
 				foreach(Talent talent in profession.talents) {
 					if(!list.Contains(talent.Id)) {
 						list.Add(talent.Id);
-						talents.Add(talent);
+						Talents.Add(talent);
 					}
 				}
 			}

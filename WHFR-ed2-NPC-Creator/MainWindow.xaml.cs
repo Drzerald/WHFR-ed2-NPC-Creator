@@ -20,16 +20,22 @@ namespace WHFR_ed2_NPC_Creator {
 	/// Logika interakcji dla klasy MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window {
+
+		Character character { get; set; } = new Character(2, 1, 0);
 		public MainWindow() {
 			InitializeComponent();
+			RaceLabel.DataContext = character.Race;
 		}
 
+		
+		
 
 		private void Button_Click(object sender, RoutedEventArgs e) {
-			Character character = new Character(2,1,0);
+		
 			character.debugPrint();
-			RaceLabel.DataContext = character.Race;
 			groupBox.DataContext = character;
+			listBox_Talents.DataContext = character;
+			listBox_Skills.DataContext = character.skills;
 		}
 
 
@@ -38,6 +44,12 @@ namespace WHFR_ed2_NPC_Creator {
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
+		private void updateCharacteristics(object sender, RoutedEventArgs e) {
+			character.updateCharateristics();
+		}
 
+		private void ListBox_Talents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+			textBlock_TalentDescription.DataContext = character.Talents[listBox_Talents.SelectedIndex];
+		}
 	}
 }

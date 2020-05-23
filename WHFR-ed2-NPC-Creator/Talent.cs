@@ -10,7 +10,7 @@ namespace WHFR_ed2_NPC_Creator {
 	class Talent {
 		public int Id { get; }
 		public string Name;
-		public string Description;
+		public string Description { get; }
 
 		public Talent(int id) {
 			Id = id;
@@ -30,7 +30,7 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 
 		public override string ToString() {
-			return Id.ToString()+ " " + Name;
+			return Name;
 		}
 	}
 }
