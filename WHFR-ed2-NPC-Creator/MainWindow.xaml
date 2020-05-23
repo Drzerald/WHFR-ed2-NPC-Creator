@@ -42,44 +42,44 @@
 				<Label Content="Ogł" Grid.Column="8" Grid.Row="0" HorizontalAlignment="Center"/>
 
 				<Label Content="Rzuty:" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="1"/>
-				<TextBox Text="{Binding CharacteristicsFromRolls.WeaponSkills, Mode=TwoWay}"	Grid.Column="1" Grid.Row="1" TextAlignment="Center" LostFocus="updateCharacteristics"/>
-				<TextBox Text="{Binding CharacteristicsFromRolls.BaliscticSkills, Mode=TwoWay}"	Grid.Column="2" Grid.Row="1" TextAlignment="Center" LostFocus="updateCharacteristics"/>
-				<TextBox Text="{Binding CharacteristicsFromRolls.Strength, Mode=TwoWay}"		Grid.Column="3" Grid.Row="1" TextAlignment="Center" LostFocus="updateCharacteristics"/>
-				<TextBox Text="{Binding CharacteristicsFromRolls.Toughness, Mode=TwoWay}"		Grid.Column="4" Grid.Row="1" TextAlignment="Center" LostFocus="updateCharacteristics"/>
-				<TextBox Text="{Binding CharacteristicsFromRolls.Agility, Mode=TwoWay}"			Grid.Column="5" Grid.Row="1" TextAlignment="Center" LostFocus="updateCharacteristics"/>
-				<TextBox Text="{Binding CharacteristicsFromRolls.Intelligence, Mode=TwoWay}"	Grid.Column="6" Grid.Row="1" TextAlignment="Center" LostFocus="updateCharacteristics"/>
-				<TextBox Text="{Binding CharacteristicsFromRolls.WillPower, Mode=TwoWay}"		Grid.Column="7" Grid.Row="1" TextAlignment="Center" LostFocus="updateCharacteristics"/>
-				<TextBox Text="{Binding CharacteristicsFromRolls.Fellowship, Mode=TwoWay}"		Grid.Column="8" Grid.Row="1" TextAlignment="Center" LostFocus="updateCharacteristics"/>
+				<TextBox x:Name="ww1" Text="{Binding WeaponSkills, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"	Grid.Column="1" Grid.Row="1" TextAlignment="Center"/>
+				<TextBox Text="{Binding CharacteristicsFromRolls.BalisticSkills, Mode=TwoWay,UpdateSourceTrigger = PropertyChanged}"	Grid.Column="2" Grid.Row="1" TextAlignment="Center" />
+				<TextBox Text="{Binding CharacteristicsFromRolls.Strength, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="3" Grid.Row="1" TextAlignment="Center"/>
+				<TextBox Text="{Binding CharacteristicsFromRolls.Toughness, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="4" Grid.Row="1" TextAlignment="Center"/>
+				<TextBox Text="{Binding CharacteristicsFromRolls.Agility, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"			Grid.Column="5" Grid.Row="1" TextAlignment="Center" />
+				<TextBox Text="{Binding CharacteristicsFromRolls.Intelligence, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"	Grid.Column="6" Grid.Row="1" TextAlignment="Center" />
+				<TextBox Text="{Binding CharacteristicsFromRolls.WillPower, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="7" Grid.Row="1" TextAlignment="Center" />
+				<TextBox Text="{Binding CharacteristicsFromRolls.Fellowship, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="8" Grid.Row="1" TextAlignment="Center" />
 
 				<Label Content="Rasa:" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="2"/>
-				<TextBox Text="{Binding Race.Characteristics.WeaponSkills, Mode=TwoWay}"	Grid.Column="1" Grid.Row="2"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Race.Characteristics.BaliscticSkills, Mode=TwoWay}"	Grid.Column="2" Grid.Row="2"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Race.Characteristics.Strength, Mode=TwoWay}"		Grid.Column="3" Grid.Row="2"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Race.Characteristics.Toughness, Mode=TwoWay}"		Grid.Column="4" Grid.Row="2"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Race.Characteristics.Agility, Mode=TwoWay}"			Grid.Column="5" Grid.Row="2"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Race.Characteristics.Intelligence, Mode=TwoWay}"	Grid.Column="6" Grid.Row="2"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Race.Characteristics.WillPower, Mode=TwoWay}"		Grid.Column="7" Grid.Row="2"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Race.Characteristics.Fellowship, Mode=TwoWay}"		Grid.Column="8" Grid.Row="2"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Race.Characteristics.WeaponSkills, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"	Grid.Column="1" Grid.Row="2"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Race.Characteristics.BalisticSkills, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"	Grid.Column="2" Grid.Row="2"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Race.Characteristics.Strength, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="3" Grid.Row="2"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Race.Characteristics.Toughness, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="4" Grid.Row="2"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Race.Characteristics.Agility, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"			Grid.Column="5" Grid.Row="2"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Race.Characteristics.Intelligence, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"	Grid.Column="6" Grid.Row="2"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Race.Characteristics.WillPower, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="7" Grid.Row="2"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Race.Characteristics.Fellowship, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="8" Grid.Row="2"  TextAlignment="Center"/>
 
 				<Label Content="Rozwinięcia:" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="3"/>
-				<TextBox Text="{Binding CharacteristicsFromProfessions.WeaponSkills, Mode=TwoWay}"		Grid.Column="1" Grid.Row="3"  TextAlignment="Center"/>
-				<TextBox Text="{Binding CharacteristicsFromProfessions.BaliscticSkills, Mode=TwoWay}"	Grid.Column="2" Grid.Row="3"  TextAlignment="Center"/>
-				<TextBox Text="{Binding CharacteristicsFromProfessions.Strength, Mode=TwoWay}"			Grid.Column="3" Grid.Row="3"  TextAlignment="Center"/>
-				<TextBox Text="{Binding CharacteristicsFromProfessions.Toughness, Mode=TwoWay}"		Grid.Column="4" Grid.Row="3"  TextAlignment="Center"/>
-				<TextBox Text="{Binding CharacteristicsFromProfessions.Agility, Mode=TwoWay}"			Grid.Column="5" Grid.Row="3"  TextAlignment="Center"/>
-				<TextBox Text="{Binding CharacteristicsFromProfessions.Intelligence, Mode=TwoWay}"		Grid.Column="6" Grid.Row="3"  TextAlignment="Center"/>
-				<TextBox Text="{Binding CharacteristicsFromProfessions.WillPower, Mode=TwoWay}"		Grid.Column="7" Grid.Row="3"  TextAlignment="Center"/>
-				<TextBox Text="{Binding CharacteristicsFromProfessions.Fellowship, Mode=TwoWay}"		Grid.Column="8" Grid.Row="3"  TextAlignment="Center"/>
+				<TextBox Text="{Binding CharacteristicsFromProfessions.WeaponSkills, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="1" Grid.Row="3"  TextAlignment="Center"/>
+				<TextBox Text="{Binding CharacteristicsFromProfessions.BalisticSkills, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"	Grid.Column="2" Grid.Row="3"  TextAlignment="Center"/>
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Strength, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"			Grid.Column="3" Grid.Row="3"  TextAlignment="Center"/>
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Toughness, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="4" Grid.Row="3"  TextAlignment="Center"/>
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Agility, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"			Grid.Column="5" Grid.Row="3"  TextAlignment="Center"/>
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Intelligence, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="6" Grid.Row="3"  TextAlignment="Center"/>
+				<TextBox Text="{Binding CharacteristicsFromProfessions.WillPower, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="7" Grid.Row="3"  TextAlignment="Center"/>
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Fellowship, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="8" Grid.Row="3"  TextAlignment="Center"/>
 
 				<Label Content="Wynik:" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="4"/>
-				<TextBox Text="{Binding Characteristics.WeaponSkills, Mode=TwoWay}"		Grid.Column="1" Grid.Row="4"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Characteristics.BaliscticSkills, Mode=TwoWay}"	Grid.Column="2" Grid.Row="4"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Characteristics.Strength, Mode=TwoWay}"			Grid.Column="3" Grid.Row="4"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Characteristics.Toughness, Mode=TwoWay}"		Grid.Column="4" Grid.Row="4"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Characteristics.Agility, Mode=TwoWay}"			Grid.Column="5" Grid.Row="4"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Characteristics.Intelligence, Mode=TwoWay}"		Grid.Column="6" Grid.Row="4"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Characteristics.WillPower, Mode=TwoWay}"		Grid.Column="7" Grid.Row="4"  TextAlignment="Center"/>
-				<TextBox Text="{Binding Characteristics.Fellowship, Mode=TwoWay}"		Grid.Column="8" Grid.Row="4"  TextAlignment="Center"/>
+				<TextBox x:Name="WW4" Text="{Binding WeaponSkills, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="1" Grid.Row="4"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Characteristics.BalisticSkills, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"	Grid.Column="2" Grid.Row="4"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Characteristics.Strength, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"			Grid.Column="3" Grid.Row="4"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Characteristics.Toughness, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="4" Grid.Row="4"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Characteristics.Agility, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"			Grid.Column="5" Grid.Row="4"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Characteristics.Intelligence, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="6" Grid.Row="4"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Characteristics.WillPower, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="7" Grid.Row="4"  TextAlignment="Center"/>
+				<TextBox Text="{Binding Characteristics.Fellowship, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="8" Grid.Row="4"  TextAlignment="Center"/>
 			</Grid>
 
 		</GroupBox>

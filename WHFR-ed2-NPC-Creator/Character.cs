@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,38 +9,36 @@ using System.Threading.Tasks;
 namespace WHFR_ed2_NPC_Creator {
 	class Character {
 
+		public event Action OnCharacteristicRecalculate = delegate { };
 		public string Name = "";
-
 		public Characteristics CharacteristicsFromRolls { get; set; } = new Characteristics();
 		public Characteristics CharacteristicsFromProfessions { get; set; } = new Characteristics();
 		public Race Race { get; set; }
-		public List<Profession> professions = new List<Profession>();
+		public List<Profession> Professions { get; set; } = new List<Profession>();
 		public Characteristics Characteristics { get; set; } = new Characteristics(); //THINK
-
-		Profession[] professionHistory = new Profession[3];
-
 		public SkillList skills { get; set; } = new SkillList();
 		public List<Talent> Talents { get; set; } = new List<Talent>();
- 
 
+		
 		public Character(int raceID, int professionId) {
 			Race = new Race(raceID);
-			professions.Add(new Profession(professionId));
+			Professions.Add(new Profession(professionId));
 			rerollCharateristics();
+			Race.Characteristics.OnCharacteristicChange += recalculate;
 		}
 
 		public Character(int raceID, int professionId0, int professionId1) {
 			Race = new Race(raceID);
-			professions.Add(new Profession(professionId0));
-			professions.Add(new Profession(professionId1));
+			Professions.Add(new Profession(professionId0));
+			Professions.Add(new Profession(professionId1));
 			rerollCharateristics();
+			Race.Characteristics.OnCharacteristicChange += recalculate;
 		}
-
 
 		public void rerollCharateristics() {
 			DieRoller die = new DieRoller();
 			CharacteristicsFromRolls.WeaponSkills = die.rollD10(2);
-			CharacteristicsFromRolls.BaliscticSkills = die.rollD10(2);
+			CharacteristicsFromRolls.BalisticSkills = die.rollD10(2);
 			CharacteristicsFromRolls.Strength = die.rollD10(2);
 			CharacteristicsFromRolls.Toughness = die.rollD10(2);
 			CharacteristicsFromRolls.Agility = die.rollD10(2);
@@ -73,19 +73,15 @@ namespace WHFR_ed2_NPC_Creator {
 				System.Diagnostics.Debug.WriteLine(talent.ToString());
 			}
 		}
-
-
+		
 		public void updateCharateristics() {
 			updateProfessionCharateristics();
 			int[] characteristicsArray = { 0, 0, 0, 0, 0, 0, 0, 0 };
-			int[] characteristicsArrayRace = Race.Characteristics.getMainCharacteristics();
-			int[] characteristicsArrayProfessions = CharacteristicsFromProfessions.getMainCharacteristics();
-			int[] characteristicsArrayRolls = CharacteristicsFromRolls.getMainCharacteristics();
 			//Rolls + Prof + Race (main)
 			for (int i = 0; i < 8; i++) {
-				characteristicsArray[i] += characteristicsArrayRace[i];
-				characteristicsArray[i] += characteristicsArrayRolls[i];
-				characteristicsArray[i] += characteristicsArrayProfessions[i];
+				characteristicsArray[i] += Race.Characteristics.getMainCharacteristics()[i];
+				characteristicsArray[i] += CharacteristicsFromRolls.getMainCharacteristics()[i];
+				characteristicsArray[i] += CharacteristicsFromProfessions.getMainCharacteristics()[i];
 			}
 			// Prof + Race (side)
 			Characteristics.Attacks = CharacteristicsFromProfessions.Attacks + Race.Characteristics.Attacks;
@@ -94,12 +90,13 @@ namespace WHFR_ed2_NPC_Creator {
 			Characteristics.Magick = CharacteristicsFromProfessions.Magick + Race.Characteristics.Magick;
 			//Seting
 			Characteristics.setMainCharacteristics(characteristicsArray);
+			OnCharacteristicRecalculate();
 		}
 
 
 		private void updateProfessionCharateristics() {
 			int[] maxAdvancement = { 0, 0, 0, 0, 0, 0, 0, 0 };
-			foreach(Profession profession in professions) {
+			foreach (Profession profession in Professions) {
 				int[] array = profession.Characteristics.getMainCharacteristics();
 				for(int i = 0; i<8; i++) {
 					if (maxAdvancement[i] < array[i]) {
@@ -122,10 +119,13 @@ namespace WHFR_ed2_NPC_Creator {
 			CharacteristicsFromProfessions.setMainCharacteristics(maxAdvancement);
 		}
 
+		private void recalculate() {
+			updateCharateristics();
+		}
 
 		private void refreshSkills() {
 			skills.Zero();
-			foreach (Profession profession in professions) {
+			foreach (Profession profession in Professions) {
 				foreach (SkillProfile skillprof in profession.skills) {
 					skills.advanceSkill(skillprof.Id);
 				}
@@ -134,7 +134,7 @@ namespace WHFR_ed2_NPC_Creator {
 
 		private int[] getCharacteristicsFromProfessions() {
 			int[] characteristicsArrayProfessions = {0,0,0,0,0,0,0,0};
-			foreach (Profession profession in professions) {
+			foreach (Profession profession in Professions) {
 				int[] array = profession.Characteristics.getMainCharacteristics();
 				for (int i = 0; i< 8; i++) {
 					if (characteristicsArrayProfessions[i] < array[i]) {
@@ -147,7 +147,7 @@ namespace WHFR_ed2_NPC_Creator {
 
 		private void refreshTalents() {
 			List<int> list = new List<int>();
-			foreach (Profession profession in professions) {
+			foreach (Profession profession in Professions) {
 				foreach(Talent talent in profession.talents) {
 					if(!list.Contains(talent.Id)) {
 						list.Add(talent.Id);

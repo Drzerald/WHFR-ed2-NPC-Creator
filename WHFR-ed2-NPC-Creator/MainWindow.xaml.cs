@@ -22,20 +22,24 @@ namespace WHFR_ed2_NPC_Creator {
 	public partial class MainWindow : Window {
 
 		Character character { get; set; } = new Character(2, 1, 0);
+
 		public MainWindow() {
 			InitializeComponent();
 			RaceLabel.DataContext = character.Race;
-		}
-
-		
-		
-
-		private void Button_Click(object sender, RoutedEventArgs e) {
-		
-			character.debugPrint();
 			groupBox.DataContext = character;
 			listBox_Talents.DataContext = character;
+			
 			listBox_Skills.DataContext = character.skills;
+
+			ww1.DataContext = character.CharacteristicsFromRolls;
+			WW4.DataContext = character.Characteristics;
+
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e) {
+			character.debugPrint();
+			
+
 		}
 
 
@@ -44,9 +48,9 @@ namespace WHFR_ed2_NPC_Creator {
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
-		private void updateCharacteristics(object sender, RoutedEventArgs e) {
-			character.updateCharateristics();
-		}
+		//private void updateCharacteristics(object sender, RoutedEventArgs e) {
+		//	character.updateCharateristics();
+		//}
 
 		private void ListBox_Talents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 			textBlock_TalentDescription.DataContext = character.Talents[listBox_Talents.SelectedIndex];
