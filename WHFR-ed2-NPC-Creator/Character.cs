@@ -10,7 +10,7 @@ namespace WHFR_ed2_NPC_Creator {
 	class Character {
 
 		public event Action OnCharacteristicRecalculate = delegate { };
-		public string Name = "";
+		public string Name = "Ezo";
 		public Characteristics CharacteristicsFromRolls { get; set; } = new Characteristics();
 		public Characteristics CharacteristicsFromProfessions { get; set; } = new Characteristics();
 		public Race Race { get; set; }

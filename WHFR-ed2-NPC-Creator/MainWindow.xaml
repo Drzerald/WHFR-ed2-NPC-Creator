@@ -54,7 +54,7 @@
 				<Label Content="Wt" Grid.Column="13" Grid.Row="3" HorizontalAlignment="Center"/>
 				<Label Content="Sz" Grid.Column="14" Grid.Row="1" HorizontalAlignment="Center"/>
 				<Label Content="Mag" Grid.Column="15" Grid.Row="1" HorizontalAlignment="Center"/>
-				
+
 				<Label Content="Rzuty:" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="1"/>
 				<TextBox Text="{Binding CharacteristicsFromRolls.WeaponSkills, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"	Grid.Column="1" Grid.Row="1" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14"/>
 				<TextBox Text="{Binding CharacteristicsFromRolls.BalisticSkills, Mode=TwoWay,UpdateSourceTrigger = PropertyChanged}"	Grid.Column="2" Grid.Row="1" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14" />
@@ -64,7 +64,7 @@
 				<TextBox Text="{Binding CharacteristicsFromRolls.Intelligence, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="6" Grid.Row="1" TextAlignment="Center"  BorderBrush="Green" BorderThickness="2" FontSize="14"/>
 				<TextBox Text="{Binding CharacteristicsFromRolls.WillPower, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="7" Grid.Row="1" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14"/>
 				<TextBox Text="{Binding CharacteristicsFromRolls.Fellowship, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="8" Grid.Row="1" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14"/>
-				
+
 
 				<Label Content="Rasa:" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="2"/>
 				<TextBox Text="{Binding Race.Characteristics.WeaponSkills, Mode=OneWay, UpdateSourceTrigger = PropertyChanged}"		Grid.Column="1" Grid.Row="2" TextAlignment="Center" FontSize="14" Focusable="False" />
@@ -80,7 +80,7 @@
 				<TextBox Text="{Binding Race.Characteristics.Wounds, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"			Grid.Column="11" Grid.Row="2" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14"/>
 				<TextBox Text="{Binding Race.Characteristics.Mobility, Mode=OneWay, UpdateSourceTrigger = PropertyChanged}"			Grid.Column="14" Grid.Row="2" TextAlignment="Center" Focusable="False" />
 				<TextBox Text="{Binding Race.Characteristics.Magick, Mode=OneWay, UpdateSourceTrigger = PropertyChanged}"			Grid.Column="15" Grid.Row="2" TextAlignment="Center" Focusable="False" />
-				
+
 				<Label Content="Rozwinięcia:" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="3"/>
 				<TextBox Text="{Binding CharacteristicsFromProfessions.WeaponSkills, Mode=OneWay, UpdateSourceTrigger = PropertyChanged}"	Grid.Column="1" Grid.Row="3"  TextAlignment="Center" FontSize="14" Focusable="False" />
 				<TextBox Text="{Binding CharacteristicsFromProfessions.BalisticSkills, Mode=OneWay, UpdateSourceTrigger = PropertyChanged}"	Grid.Column="2" Grid.Row="3"  TextAlignment="Center" FontSize="14" Focusable="False" />
@@ -114,16 +114,20 @@
 				<TextBox Text="{Binding Characteristics.Magick,			Mode=OneWay, UpdateSourceTrigger = PropertyChanged}" Grid.Column="15" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
 
 			</Grid>
-
 		</GroupBox>
 
-		<ListBox x:Name="listBox_Talents" HorizontalAlignment="Left" Height="250" Width="250" Margin="10,195,0,0" VerticalAlignment="Top"  ItemsSource="{Binding Talents}" SelectionChanged="ListBox_Talents_SelectionChanged"/>
-		<TextBlock x:Name="textBlock_TalentDescription" HorizontalAlignment="Left" Height="100" Width="250" Margin="10,450,0,0" TextWrapping="Wrap" Text="{Binding Description, Mode=OneWay}" VerticalAlignment="Top" />
-
+		<GroupBox Header="Zdolności" HorizontalAlignment="Left" Height="400" Width="300" Margin="10,205,0,0" VerticalAlignment="Top">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height ="2*" />
+					<RowDefinition Height ="1*" />
+				</Grid.RowDefinitions>
+				<ListBox x:Name="listBox_Talents"  VerticalAlignment="Top"  ItemsSource="{Binding Talents}" SelectionChanged="ListBox_Talents_SelectionChanged" Grid.Row="0"/>
+				<TextBlock x:Name="textBlock_TalentDescription" TextWrapping="Wrap" Text="{Binding Description, Mode=OneWay}" Grid.Row="1" Foreground="Black" Background="White" />
+			</Grid>
+		</GroupBox>
 		<ListBox x:Name="listBox_Skills" HorizontalAlignment="Left" Height="649" Margin="632,10,0,0" VerticalAlignment="Top" Width="250" ItemsSource="{Binding LearnedSkills}"/>
 		<Button x:Name="button_Copy" Content="DebugChars" HorizontalAlignment="Left" Margin="90,639,0,0" VerticalAlignment="Top" Width="75" Click="Button_Chars" Height="20" RenderTransformOrigin="1.053,0.325"/>
-
-
-
+		<Button x:Name="SaveCharacterButton" Content="Save Character" HorizontalAlignment="Left" Margin="527,639,0,0" VerticalAlignment="Top" Width="100" Click="SaveCharacterButton_Click" Height="20" RenderTransformOrigin="1.053,0.325"/>
 	</Grid>
 </Window>

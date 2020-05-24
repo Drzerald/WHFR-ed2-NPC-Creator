@@ -54,5 +54,12 @@ namespace WHFR_ed2_NPC_Creator {
 		private void ListBox_Talents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 			textBlock_TalentDescription.DataContext = character.Talents[listBox_Talents.SelectedIndex];
 		}
+
+		private void SaveCharacterButton_Click(object sender, RoutedEventArgs e) {
+			DataBaseController controller = new DataBaseController();
+			int x = controller.SaveToDataBase(character);
+			SaveCharacterButton.Content = x.ToString();
+		}
+
 	}
 }

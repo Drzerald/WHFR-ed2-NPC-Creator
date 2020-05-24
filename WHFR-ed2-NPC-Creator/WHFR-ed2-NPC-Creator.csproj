@@ -75,6 +75,7 @@
     <Compile Include="Armor.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Characteristics.cs" />
+    <Compile Include="DataBaseController.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Profession.cs" />
     <Compile Include="Race.cs" />
