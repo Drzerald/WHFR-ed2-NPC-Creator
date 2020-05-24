@@ -11,24 +11,57 @@ namespace WHFR_ed2_NPC_Creator
 {
     class DataBaseController
     {
+
+		List<Character> listOfCharacters = new List<Character>();
+	
+		public DataBaseController() {
+			 
+		}
+
+		private void updateListOfCharacters() {
+
+		}
+
 		public int SaveToDataBase(Character character) {
+
 			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
 
-			string insertQuerry = "INSERT INTO dbo.Character (Name, WS, BS, S, T) VALUES (@Name, @WS, @BS, @S, @T)";
+			int characterId;
+
+			string insertQuerry = "INSERT INTO dbo.Character (Name, RaceId, WS, BS, S, T, Agi, Int, WP, Fel, W) output INSERTED.ID VALUES (@Name, @RaceId, @WS, @BS, @S, @T, @Agi, @Int, @WP, @Fel, @W)";
 			using (SqlConnection connection = new SqlConnection(connectionStr))
 			using (SqlCommand command = new SqlCommand(insertQuerry, connection)) {
 				//command.CommandType = 
+				int doneQuerrys = 0;
 
 				command.Parameters.AddWithValue("@Name", character.Name);
-				command.Parameters.AddWithValue("@WS", character.Characteristics.WeaponSkills);
-				command.Parameters.AddWithValue("@BS", character.Characteristics.BalisticSkills);
-				command.Parameters.AddWithValue("@S", character.Characteristics.Strength);
-				command.Parameters.AddWithValue("@T", character.Characteristics.Toughness);
-				
-				connection.Open();
-				int x = command.ExecuteNonQuery();
-				System.Diagnostics.Debug.WriteLine(x);
+				command.Parameters.AddWithValue("@RaceId", character.Race.id);
+				command.Parameters.AddWithValue("@WS", character.CharacteristicsFromRolls.WeaponSkills);
+				command.Parameters.AddWithValue("@BS", character.CharacteristicsFromRolls.BalisticSkills);
+				command.Parameters.AddWithValue("@S", character.CharacteristicsFromRolls.Strength);
+				command.Parameters.AddWithValue("@T", character.CharacteristicsFromRolls.Toughness);
+				command.Parameters.AddWithValue("@Agi", character.CharacteristicsFromRolls.Agility);
+				command.Parameters.AddWithValue("@Int", character.CharacteristicsFromRolls.Intelligence);
+				command.Parameters.AddWithValue("@WP", character.CharacteristicsFromRolls.WillPower);
+				command.Parameters.AddWithValue("@Fel", character.CharacteristicsFromRolls.Fellowship);
+				command.Parameters.AddWithValue("@W", character.Race.Characteristics.Wounds);
 
+				connection.Open();
+				characterId = (int)command.ExecuteScalar();
+				System.Diagnostics.Debug.WriteLine(characterId);
+
+				command.CommandText = "INSERT INTO dbo.CharacterProfessions (CharacterId, ProfessionId) Values (@CharacterId, @ProfessionId)";
+				command.Parameters.AddWithValue("@CharacterId", 0);
+				command.Parameters.AddWithValue("@ProfessionId", 0);
+				List<int> professionIds = new List<int>();
+				foreach (Profession profession in character.Professions) {
+					//professionIds.Add(profession.Id);
+					command.Parameters["@CharacterId"].Value = characterId;
+					command.Parameters["@ProfessionId"].Value = profession.Id;
+					command.ExecuteNonQuery();
+				}
+				//command.Parameters.AddRange();
+				if (doneQuerrys == character.Professions.Count) { System.Diagnostics.Debug.WriteLine("DONE"); }
 				connection.Close();
 			}
 
@@ -41,7 +74,6 @@ namespace WHFR_ed2_NPC_Creator
 				numberOfRecords = table.Select().Length;
 				System.Diagnostics.Debug.WriteLine("table length: " + numberOfRecords.ToString());
 				connection.Close();
-
 			}
 			return numberOfRecords;
 		}

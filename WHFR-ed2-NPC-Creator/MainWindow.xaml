@@ -116,14 +116,16 @@
 			</Grid>
 		</GroupBox>
 
-		<GroupBox Header="Zdolności" HorizontalAlignment="Left" Height="400" Width="300" Margin="10,205,0,0" VerticalAlignment="Top">
-			<Grid>
+		<GroupBox Header="Zdolności" HorizontalAlignment="Left" Height="429" Width="300" Margin="10,205,0,0" VerticalAlignment="Top">
+
+			<Grid IsEnabled="False">
+				
 				<Grid.RowDefinitions>
 					<RowDefinition Height ="2*" />
 					<RowDefinition Height ="1*" />
 				</Grid.RowDefinitions>
 				<ListBox x:Name="listBox_Talents"  VerticalAlignment="Top"  ItemsSource="{Binding Talents}" SelectionChanged="ListBox_Talents_SelectionChanged" Grid.Row="0"/>
-				<TextBlock x:Name="textBlock_TalentDescription" TextWrapping="Wrap" Text="{Binding Description, Mode=OneWay}" Grid.Row="1" Foreground="Black" Background="White" />
+				<TextBlock x:Name="textBlock_TalentDescription" TextWrapping="Wrap" Grid.Row="1" Foreground="Black" Background="White" />
 			</Grid>
 		</GroupBox>
 		<ListBox x:Name="listBox_Skills" HorizontalAlignment="Left" Height="649" Margin="632,10,0,0" VerticalAlignment="Top" Width="250" ItemsSource="{Binding LearnedSkills}"/>

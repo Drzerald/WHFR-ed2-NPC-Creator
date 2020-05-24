@@ -5,10 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace WHFR_ed2_NPC_Creator {
 	class Character {
-
+		public int Id { get; set; } = -1;
 		public event Action OnCharacteristicRecalculate = delegate { };
 		public string Name = "Ezo";
 		public Characteristics CharacteristicsFromRolls { get; set; } = new Characteristics();
@@ -36,6 +38,35 @@ namespace WHFR_ed2_NPC_Creator {
 			Race.Characteristics.OnCharacteristicChange += recalculate;
 			CharacteristicsFromRolls.OnCharacteristicChange += recalculate;
 		}
+
+		public Character(int id) {
+			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
+			using (SqlConnection connection = new SqlConnection(connectionStr))
+
+			using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Character", connection)) {
+				connection.Open();
+				System.Data.DataTable table = new System.Data.DataTable();
+				dataAdapter.Fill(table);
+
+				Id = id;
+				Name = table.Rows[id]["Name"].ToString();
+				
+				this.Race = new Race((int)table.Rows[id]["RaceId"]);
+				Race.Characteristics.Wounds = (int)table.Rows[id]["W"];
+
+				CharacteristicsFromRolls.WeaponSkills  = (int)table.Rows[id]["WS"];
+				CharacteristicsFromRolls.BalisticSkills = (int)table.Rows[id]["BS"];
+				CharacteristicsFromRolls.Strength  = (int)table.Rows[id]["S"];
+				CharacteristicsFromRolls.Toughness = (int)table.Rows[id]["T"];
+				CharacteristicsFromRolls.Agility   = (int)table.Rows[id]["Agi"];
+				CharacteristicsFromRolls.Intelligence = (int)table.Rows[id]["Int"];
+				CharacteristicsFromRolls.WillPower  = (int)table.Rows[id]["WP"];
+				CharacteristicsFromRolls.Fellowship = (int)table.Rows[id]["Fel"];
+
+				connection.Close();
+			}
+		}
+
 
 		public void rerollCharateristics() {
 			DieRoller die = new DieRoller();
@@ -159,6 +190,13 @@ namespace WHFR_ed2_NPC_Creator {
 			}
 		}
 
+		public override string ToString() {
+			if (Name != null) {
+				return Name;
+			} else {
+				return Id.ToString();
+			}
+ 		}
 
 	}
 }

@@ -28,9 +28,8 @@ namespace WHFR_ed2_NPC_Creator {
 			RaceLabel.DataContext = character.Race;
 			groupBox.DataContext = character;
 			listBox_Talents.DataContext = character;
-			
-			listBox_Skills.DataContext = character.skills;
 
+			listBox_Skills.DataContext = character.skills;
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e) {
@@ -40,7 +39,6 @@ namespace WHFR_ed2_NPC_Creator {
 		private void Button_Chars(object sender, RoutedEventArgs e) {
 			character.Characteristics.DebugPrint();
 		}
-
 
 		public event PropertyChangedEventHandler PropertyChanged;
 		private void OnPropertyChanged([CallerMemberName] string propertyName = null) {
@@ -54,7 +52,7 @@ namespace WHFR_ed2_NPC_Creator {
 		private void ListBox_Talents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 			textBlock_TalentDescription.DataContext = character.Talents[listBox_Talents.SelectedIndex];
 		}
-
+		
 		private void SaveCharacterButton_Click(object sender, RoutedEventArgs e) {
 			DataBaseController controller = new DataBaseController();
 			int x = controller.SaveToDataBase(character);
