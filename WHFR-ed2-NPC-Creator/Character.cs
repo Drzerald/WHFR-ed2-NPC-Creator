@@ -12,7 +12,7 @@ namespace WHFR_ed2_NPC_Creator {
 	class Character {
 		public int Id { get; set; } = -1;
 		public event Action OnCharacteristicRecalculate = delegate { };
-		public string Name = "Ezo";
+		public string Name { get; set; } = "Ezo";
 		public Characteristics CharacteristicsFromRolls { get; set; } = new Characteristics();
 		public Characteristics CharacteristicsFromProfessions { get; set; } = new Characteristics();
 		public Race Race { get; set; }
@@ -41,30 +41,45 @@ namespace WHFR_ed2_NPC_Creator {
 
 		public Character(int id) {
 			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
-			using (SqlConnection connection = new SqlConnection(connectionStr))
 
-			using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Character", connection)) {
+			using (SqlConnection connection = new SqlConnection(connectionStr))
+			using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Character Where Character.Id = " + id, connection)) {
 				connection.Open();
 				System.Data.DataTable table = new System.Data.DataTable();
 				dataAdapter.Fill(table);
 
 				Id = id;
-				Name = table.Rows[id]["Name"].ToString();
+				Name = table.Rows[0]["Name"].ToString();
 				
-				this.Race = new Race((int)table.Rows[id]["RaceId"]);
-				Race.Characteristics.Wounds = (int)table.Rows[id]["W"];
+				this.Race = new Race((int)table.Rows[0]["RaceId"]);
+				Race.Characteristics.Wounds = (int)table.Rows[0]["W"];
 
-				CharacteristicsFromRolls.WeaponSkills  = (int)table.Rows[id]["WS"];
-				CharacteristicsFromRolls.BalisticSkills = (int)table.Rows[id]["BS"];
-				CharacteristicsFromRolls.Strength  = (int)table.Rows[id]["S"];
-				CharacteristicsFromRolls.Toughness = (int)table.Rows[id]["T"];
-				CharacteristicsFromRolls.Agility   = (int)table.Rows[id]["Agi"];
-				CharacteristicsFromRolls.Intelligence = (int)table.Rows[id]["Int"];
-				CharacteristicsFromRolls.WillPower  = (int)table.Rows[id]["WP"];
-				CharacteristicsFromRolls.Fellowship = (int)table.Rows[id]["Fel"];
-
+				CharacteristicsFromRolls.WeaponSkills  = (int)table.Rows[0]["WS"];
+				CharacteristicsFromRolls.BalisticSkills = (int)table.Rows[0]["BS"];
+				CharacteristicsFromRolls.Strength  = (int)table.Rows[0]["S"];
+				CharacteristicsFromRolls.Toughness = (int)table.Rows[0]["T"];
+				CharacteristicsFromRolls.Agility   = (int)table.Rows[0]["Agi"];
+				CharacteristicsFromRolls.Intelligence = (int)table.Rows[0]["Int"];
+				CharacteristicsFromRolls.WillPower  = (int)table.Rows[0]["WP"];
+				CharacteristicsFromRolls.Fellowship = (int)table.Rows[0]["Fel"];
+			
 				connection.Close();
 			}
+
+			using (SqlConnection connection = new SqlConnection(connectionStr))
+			using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT Professions.Id FROM Professions INNER JOIN CharacterProfessions ON Professions.Id = CharacterProfessions.ProfessionId Where CharacterProfessions.CharacterId = " + Id.ToString(), connection)) {
+				connection.Open();
+				System.Data.DataTable table = new System.Data.DataTable();
+				dataAdapter.Fill(table);
+
+				for (int i = 0; i < table.Rows.Count; i++) {
+					Professions.Add(new Profession((int)table.Rows[i]["Id"]));
+				}
+
+			}
+
+			CharacteristicsFromRolls.OnCharacteristicChange += recalculate;
+			recalculate();
 		}
 
 
@@ -78,8 +93,6 @@ namespace WHFR_ed2_NPC_Creator {
 			CharacteristicsFromRolls.Intelligence = die.rollD10(2);
 			CharacteristicsFromRolls.WillPower = die.rollD10(2);
 			CharacteristicsFromRolls.Fellowship = die.rollD10(2);
-			refreshSkills();
-			refreshTalents();
 			updateCharateristics();
 		}
 
@@ -154,6 +167,8 @@ namespace WHFR_ed2_NPC_Creator {
 
 		private void recalculate() {
 			updateCharateristics();
+			refreshSkills();
+			refreshTalents();
 		}
 
 		private void refreshSkills() {

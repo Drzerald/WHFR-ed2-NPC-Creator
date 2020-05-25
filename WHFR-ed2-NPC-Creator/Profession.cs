@@ -23,27 +23,27 @@ namespace WHFR_ed2_NPC_Creator {
 			string connectionStr = System.Configuration.ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
 
 			using (SqlConnection connection = new SqlConnection(connectionStr))
-			using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM professions", connection)) {
+			using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM professions Where id = " + id.ToString(), connection)) {
 				connection.Open();
 				System.Data.DataTable profesionTable = new System.Data.DataTable();
 				dataAdapter.Fill(profesionTable);
 				
-				Name = profesionTable.Rows[id]["FullName"].ToString();
+				Name = profesionTable.Rows[0]["FullName"].ToString();
 				int[] arrayOfMainCharateristics ={
-					(int)profesionTable.Rows[id]["WS"],
-					(int)profesionTable.Rows[id]["BS"],
-					(int)profesionTable.Rows[id]["S"],
-					(int)profesionTable.Rows[id]["T"],
-					(int)profesionTable.Rows[id]["Agi"],
-					(int)profesionTable.Rows[id]["Int"],
-					(int)profesionTable.Rows[id]["WP"],
-					(int)profesionTable.Rows[id]["Fel"],
+					(int)profesionTable.Rows[0]["WS"],
+					(int)profesionTable.Rows[0]["BS"],
+					(int)profesionTable.Rows[0]["S"],
+					(int)profesionTable.Rows[0]["T"],
+					(int)profesionTable.Rows[0]["Agi"],
+					(int)profesionTable.Rows[0]["Int"],
+					(int)profesionTable.Rows[0]["WP"],
+					(int)profesionTable.Rows[0]["Fel"],
 				};
 				Characteristics.setMainCharacteristics(arrayOfMainCharateristics);
-				Characteristics.Attacks = (int)profesionTable.Rows[id]["A"];
-				Characteristics.Wounds = (int)profesionTable.Rows[id]["W"];
-				Characteristics.Mobility = (int)profesionTable.Rows[id]["Mob"];
-				Characteristics.Magick = (int)profesionTable.Rows[id]["mob"];
+				Characteristics.Attacks = (int)profesionTable.Rows[0]["A"];
+				Characteristics.Wounds = (int)profesionTable.Rows[0]["W"];
+				Characteristics.Mobility = (int)profesionTable.Rows[0]["Mob"];
+				Characteristics.Magick = (int)profesionTable.Rows[0]["mob"];
 
 				connection.Close();
 			}

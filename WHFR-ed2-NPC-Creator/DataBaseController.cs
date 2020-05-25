@@ -6,21 +6,39 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 
 namespace WHFR_ed2_NPC_Creator
 {
-    class DataBaseController
-    {
+    class DataBaseController : INotifyPropertyChanged {
+		public event PropertyChangedEventHandler PropertyChanged;
 
-		List<Character> listOfCharacters = new List<Character>();
-	
+		public List<Character> ListOfCharacters { get; set; } = new List<Character>();
+		//public System.Collections.ObjectModel.ObservableCollection<Character> ListOfCharacters { get; set; } = new System.Collections.ObjectModel.ObservableCollection<Character>();
+
 		public DataBaseController() {
-			 
+			updateListOfCharacters();
 		}
 
 		private void updateListOfCharacters() {
+			ListOfCharacters.Clear();
+			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
+			using (SqlConnection connection = new SqlConnection(connectionStr))
+			using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT Id FROM Character", connection)) {
+				connection.Open();
+				System.Data.DataTable table = new System.Data.DataTable();
+				dataAdapter.Fill(table);
 
+				for (int i = 0; i < table.Rows.Count; i++) {
+					int x = (int)table.Rows[i]["Id"];
+					ListOfCharacters.Add(new Character(x));
+				}
+			}
+			OnPropertyChanged("ListOfCharacters");
+			//DebugPrint();
 		}
+
 
 		public int SaveToDataBase(Character character) {
 
@@ -75,7 +93,23 @@ namespace WHFR_ed2_NPC_Creator
 				System.Diagnostics.Debug.WriteLine("table length: " + numberOfRecords.ToString());
 				connection.Close();
 			}
+			updateListOfCharacters();
 			return numberOfRecords;
 		}
-    }
+
+
+
+		//DEBUG
+		public void DebugPrint() {
+			foreach (Character character in ListOfCharacters) {
+				//System.Diagnostics.Debug.WriteLine("Character Name: " + character.ToString());
+				character.debugPrint();
+			}
+		}
+		//INTERFACE
+		protected void OnPropertyChanged([CallerMemberName] string name = "") {
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+		}
+
+	}
 }

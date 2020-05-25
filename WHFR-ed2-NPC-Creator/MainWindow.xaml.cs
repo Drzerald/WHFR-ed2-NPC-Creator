@@ -21,7 +21,8 @@ namespace WHFR_ed2_NPC_Creator {
 	/// </summary>
 	public partial class MainWindow : Window {
 
-		Character character { get; set; } = new Character(2, 1, 0);
+		Character character { get; set; } = new Character(0, 1, 0);
+		DataBaseController dBControler = new DataBaseController();
 
 		public MainWindow() {
 			InitializeComponent();
@@ -29,7 +30,8 @@ namespace WHFR_ed2_NPC_Creator {
 			groupBox.DataContext = character;
 			listBox_Talents.DataContext = character;
 
-			listBox_Skills.DataContext = character.skills;
+			listBox_Skills.DataContext = character;
+			listBox_Characters.DataContext = dBControler;
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e) {
@@ -50,14 +52,24 @@ namespace WHFR_ed2_NPC_Creator {
 		//}
 
 		private void ListBox_Talents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-			textBlock_TalentDescription.DataContext = character.Talents[listBox_Talents.SelectedIndex];
+			//Character selection = (Character)listBox_Characters.SelectedItem;
+			//textBlock_TalentDescription.DataContext = selection.Talents;
+			textBlock_TalentDescription.DataContext = listBox_Talents.SelectedItem;
 		}
 		
 		private void SaveCharacterButton_Click(object sender, RoutedEventArgs e) {
-			DataBaseController controller = new DataBaseController();
-			int x = controller.SaveToDataBase(character);
-			SaveCharacterButton.Content = x.ToString();
+			int x = dBControler.SaveToDataBase((Character)listBox_Characters.SelectedItem);
+			listBox_Characters.DataContext = dBControler;
+			listBox_Characters.Items.Refresh();
 		}
 
+		private void ListBox_Characters_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+			//character.ToString() ;
+			textBox_CharacterName.DataContext = listBox_Characters.SelectedItem;
+			listBox_Talents.DataContext = listBox_Characters.SelectedItem;
+			listBox_Skills.DataContext = listBox_Characters.SelectedItem;
+			groupBox.DataContext = listBox_Characters.SelectedItem;	
+			//character = dBControler.ListOfCharacters[listBox_Characters.SelectedIndex];
+		}
 	}
 }

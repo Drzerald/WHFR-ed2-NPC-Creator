@@ -11,8 +11,11 @@
 
 		<Label x:Name="RaceLabel" Content="{Binding Name, Mode=OneWay}"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Grid.Column="4" Height="10" Width="10"></Label>
 
-
-		<GroupBox x:Name="groupBox" Header="Cechy" HorizontalAlignment="Left" Height="160" Width="600" Margin="10,10,0,0" VerticalAlignment="Top">
+		<Grid Margin="10,10,0,0" Height="20" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top">
+			<Label Content="Name:" Margin="0,-4,0,0"/>
+			<TextBox x:Name ="textBox_CharacterName" Text="{Binding Name, Mode=TwoWay}" Margin="50,0,0,0"/>
+		</Grid>
+		<GroupBox x:Name="groupBox" Header="Cechy" HorizontalAlignment="Left" Height="160" Width="600" Margin="10,40,0,0" VerticalAlignment="Top">
 			<Grid Margin="0,0,0,0">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="2.5*"/>
@@ -117,19 +120,20 @@
 		</GroupBox>
 
 		<GroupBox Header="Zdolności" HorizontalAlignment="Left" Height="429" Width="300" Margin="10,205,0,0" VerticalAlignment="Top">
-
-			<Grid IsEnabled="False">
-				
+			<Grid>
 				<Grid.RowDefinitions>
-					<RowDefinition Height ="2*" />
 					<RowDefinition Height ="1*" />
+					<RowDefinition Height ="3*" />
 				</Grid.RowDefinitions>
-				<ListBox x:Name="listBox_Talents"  VerticalAlignment="Top"  ItemsSource="{Binding Talents}" SelectionChanged="ListBox_Talents_SelectionChanged" Grid.Row="0"/>
-				<TextBlock x:Name="textBlock_TalentDescription" TextWrapping="Wrap" Grid.Row="1" Foreground="Black" Background="White" />
+				<ListBox x:Name="listBox_Talents"  VerticalAlignment="Top"  ItemsSource="{Binding Talents}" SelectionChanged="ListBox_Talents_SelectionChanged" Grid.Row="1"/>
+				<TextBlock x:Name="textBlock_TalentDescription" Text="{Binding Description}" TextWrapping="Wrap" Foreground="Black" Background="White" Grid.Row="0" />
 			</Grid>
 		</GroupBox>
-		<ListBox x:Name="listBox_Skills" HorizontalAlignment="Left" Height="649" Margin="632,10,0,0" VerticalAlignment="Top" Width="250" ItemsSource="{Binding LearnedSkills}"/>
+		
+		<ListBox x:Name="listBox_Skills" HorizontalAlignment="Left" Height="649" Margin="632,10,0,0" VerticalAlignment="Top" Width="250" ItemsSource="{Binding skills.LearnedSkills}"/>
 		<Button x:Name="button_Copy" Content="DebugChars" HorizontalAlignment="Left" Margin="90,639,0,0" VerticalAlignment="Top" Width="75" Click="Button_Chars" Height="20" RenderTransformOrigin="1.053,0.325"/>
 		<Button x:Name="SaveCharacterButton" Content="Save Character" HorizontalAlignment="Left" Margin="527,639,0,0" VerticalAlignment="Top" Width="100" Click="SaveCharacterButton_Click" Height="20" RenderTransformOrigin="1.053,0.325"/>
+		<ListBox x:Name="listBox_Characters" ItemsSource="{Binding ListOfCharacters}" HorizontalAlignment="Left" Height="306" Margin="315,328,0,0" VerticalAlignment="Top" Width="312" SelectionChanged="ListBox_Characters_SelectionChanged"/>
+
 	</Grid>
 </Window>
