@@ -17,9 +17,11 @@ namespace WHFR_ed2_NPC_Creator
 		public List<Character> ListOfCharacters { get; set; } = new List<Character>();
 		//public System.Collections.ObjectModel.ObservableCollection<Character> ListOfCharacters { get; set; } = new System.Collections.ObjectModel.ObservableCollection<Character>();
 
+
 		public DataBaseController() {
 			updateListOfCharacters();
 		}
+
 
 		private void updateListOfCharacters() {
 			ListOfCharacters.Clear();
@@ -53,7 +55,7 @@ namespace WHFR_ed2_NPC_Creator
 				int doneQuerrys = 0;
 
 				command.Parameters.AddWithValue("@Name", character.Name);
-				command.Parameters.AddWithValue("@RaceId", character.Race.id);
+				command.Parameters.AddWithValue("@RaceId", character.Race.Id);
 				command.Parameters.AddWithValue("@WS", character.CharacteristicsFromRolls.WeaponSkills);
 				command.Parameters.AddWithValue("@BS", character.CharacteristicsFromRolls.BalisticSkills);
 				command.Parameters.AddWithValue("@S", character.CharacteristicsFromRolls.Strength);

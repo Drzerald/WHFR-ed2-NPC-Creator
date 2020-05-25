@@ -10,9 +10,14 @@ using System.Configuration;
 
 namespace WHFR_ed2_NPC_Creator {
 	class Character {
+		private string name = "Character name (NOT LISKARM)";
+
 		public int Id { get; set; } = -1;
 		public event Action OnCharacteristicRecalculate = delegate { };
-		public string Name { get; set; } = "Ezo";
+		public string Name {
+			get { return name; }
+			set { name = value.Trim(); }
+		}
 		public Characteristics CharacteristicsFromRolls { get; set; } = new Characteristics();
 		public Characteristics CharacteristicsFromProfessions { get; set; } = new Characteristics();
 		public Race Race { get; set; }
@@ -21,6 +26,17 @@ namespace WHFR_ed2_NPC_Creator {
 		public SkillList skills { get; set; } = new SkillList();
 		public List<Talent> Talents { get; set; } = new List<Talent>();
 
+		public Character(Race race, List<Profession> professions) {
+			Race = race;
+			foreach (Profession profession in professions) {
+				Professions.Add(profession);
+			}
+			rerollCharateristics();
+			Race.Characteristics.OnCharacteristicChange += recalculate;
+			CharacteristicsFromRolls.OnCharacteristicChange += recalculate;
+			recalculate();
+		}
+			
 		
 		public Character(int raceID, int professionId) {
 			Race = new Race(raceID);
@@ -77,7 +93,6 @@ namespace WHFR_ed2_NPC_Creator {
 				}
 
 			}
-
 			CharacteristicsFromRolls.OnCharacteristicChange += recalculate;
 			recalculate();
 		}

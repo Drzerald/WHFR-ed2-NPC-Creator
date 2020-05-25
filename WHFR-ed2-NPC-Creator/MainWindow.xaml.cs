@@ -29,7 +29,6 @@ namespace WHFR_ed2_NPC_Creator {
 			RaceLabel.DataContext = character.Race;
 			groupBox.DataContext = character;
 			listBox_Talents.DataContext = character;
-
 			listBox_Skills.DataContext = character;
 			listBox_Characters.DataContext = dBControler;
 		}
@@ -64,17 +63,18 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 
 		private void ListBox_Characters_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-			//character.ToString() ;
 			textBox_CharacterName.DataContext = listBox_Characters.SelectedItem;
 			listBox_Talents.DataContext = listBox_Characters.SelectedItem;
 			listBox_Skills.DataContext = listBox_Characters.SelectedItem;
 			groupBox.DataContext = listBox_Characters.SelectedItem;	
-			//character = dBControler.ListOfCharacters[listBox_Characters.SelectedIndex];
 		}
 
 		private void Button1_Click(object sender, RoutedEventArgs e) {
 			CreateNewCharacter createNewCharacterWinodw = new CreateNewCharacter();
-			createNewCharacterWinodw.Show();
+			createNewCharacterWinodw.Owner = this;
+			createNewCharacterWinodw.ShowDialog();
 		}
+
+		
 	}
 }
