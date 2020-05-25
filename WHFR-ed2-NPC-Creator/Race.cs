@@ -37,11 +37,13 @@ namespace WHFR_ed2_NPC_Creator {
 				this.Characteristics.Attacks = int.Parse(raceTable.Rows[0]["A"].ToString());
 				this.Characteristics.Mobility = (int)raceTable.Rows[0]["Mob"];
 				this.Characteristics.Magick = (int)raceTable.Rows[0]["Mag"];
-
 				connection.Close();
-
-				
 			}
+			RollNewWoundsValue();
+		}
+
+		public void RollNewWoundsValue() {
+			string connectionStr = System.Configuration.ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
 			DieRoller die = new DieRoller();
 			int rollforWouds = die.rollD10();
 			using (SqlConnection connection = new SqlConnection(connectionStr))
@@ -49,14 +51,14 @@ namespace WHFR_ed2_NPC_Creator {
 				connection.Open();
 				System.Data.DataTable table = new System.Data.DataTable();
 				dataAdapter.Fill(table);
-				Characteristics.Wounds = (int)table.Rows[0][id];
+				Characteristics.Wounds = (int)table.Rows[0][Id + 1];
 				System.Diagnostics.Debug.WriteLine(String.Format("Roll Value {0:d} Wouds val {1:d}", rollforWouds, Characteristics.Wounds));
 			}
-
 		}
 
 		public override string ToString() {
 			return Name;
 		}
+
 	}
 }

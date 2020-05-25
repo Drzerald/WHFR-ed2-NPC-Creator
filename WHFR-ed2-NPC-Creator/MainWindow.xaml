@@ -7,9 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="900">
 	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="221*"/>
+			<ColumnDefinition Width="2*"/>
+		</Grid.ColumnDefinitions>
 		<Button x:Name="button" Content="Debug" HorizontalAlignment="Left" Margin="10,639,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="20" RenderTransformOrigin="1.053,0.325"/>
 
-		<Label x:Name="RaceLabel" Content="{Binding Name, Mode=OneWay}"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Grid.Column="4" Height="10" Width="10"></Label>
+		<Label x:Name="RaceLabel" Content="{Binding Name, Mode=OneWay}"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,2,0" Height="10" Width="10"/>
 
 		<Grid Margin="10,10,0,0" Height="20" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top">
 			<Label Content="Name:" Margin="0,-4,0,0"/>
@@ -137,7 +141,7 @@
 
 		<Button x:Name="button_Copy" Content="DebugChars" HorizontalAlignment="Left" Margin="90,639,0,0" VerticalAlignment="Top" Width="75" Click="Button_Chars" Height="20" RenderTransformOrigin="1.053,0.325"/>
 		<Button x:Name="SaveCharacterButton" Content="Save Character" HorizontalAlignment="Left" Margin="527,639,0,0" VerticalAlignment="Top" Width="100" Click="SaveCharacterButton_Click" Height="20" RenderTransformOrigin="1.053,0.325"/>
-		<ListBox x:Name="listBox_Characters" ItemsSource="{Binding ListOfCharacters}" HorizontalAlignment="Left" Height="306" Margin="632,270,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="ListBox_Characters_SelectionChanged"/>
+		<ListBox x:Name="listBox_Characters" ItemsSource="{Binding ListOfCharacters}" HorizontalAlignment="Left" Height="306" Margin="632,270,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="ListBox_Characters_SelectionChanged" SelectedIndex="0"/>
 		<Button x:Name="button1" Content="Add New" HorizontalAlignment="Left" Margin="315,639,0,0" VerticalAlignment="Top" Width="75" Click="Button1_Click"/>
 
 	</Grid>

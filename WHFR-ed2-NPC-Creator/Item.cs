@@ -8,9 +8,9 @@ namespace WHFR_ed2_NPC_Creator
 {
     class Item
     {
-        protected string name;
-        protected string description;
-        protected string type;
-        protected float weight;
+       // protected string name;
+       // protected string description;
+       // protected string type;
+      //  protected float weight;
     }
 }

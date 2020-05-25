@@ -9,9 +9,9 @@ namespace WHFR_ed2_NPC_Creator {
 
 		//Variable Declaration
 		protected int level;
-		protected bool isAdvanced;
+		//protected bool isAdvanced;
 		protected int skillBonus;
-		protected string description;
+		//protected string description;
 
 		// Get/Set 
 		public int Level {          //Skill level 
@@ -53,7 +53,7 @@ namespace WHFR_ed2_NPC_Creator {
 				Name.ToString() +
 				" lvl" + Level.ToString() +
 				" (" + SkillBonus.ToString() + ") ";
-			if (isAdvanced) { txt += "Adv"; }
+			//if (isAdvanced) { txt += "Adv"; }
 			return txt;
 		}
 

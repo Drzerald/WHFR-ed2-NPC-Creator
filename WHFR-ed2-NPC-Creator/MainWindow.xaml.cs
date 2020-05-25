@@ -23,6 +23,9 @@ namespace WHFR_ed2_NPC_Creator {
 
 		Character character { get; set; } = new Character(0, 1, 0);
 		DataBaseController dBControler = new DataBaseController();
+		private CreateNewCharacter createNewCharacterWinodw { get; set; }
+
+		
 
 		public MainWindow() {
 			InitializeComponent();
@@ -31,6 +34,8 @@ namespace WHFR_ed2_NPC_Creator {
 			listBox_Talents.DataContext = character;
 			listBox_Skills.DataContext = character;
 			listBox_Characters.DataContext = dBControler;
+			createNewCharacterWinodw = new CreateNewCharacter();
+			createNewCharacterWinodw.Closed += refreshLists;
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e) {
@@ -46,13 +51,7 @@ namespace WHFR_ed2_NPC_Creator {
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
-		//private void updateCharacteristics(object sender, RoutedEventArgs e) {
-		//	character.updateCharateristics();
-		//}
-
 		private void ListBox_Talents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-			//Character selection = (Character)listBox_Characters.SelectedItem;
-			//textBlock_TalentDescription.DataContext = selection.Talents;
 			textBlock_TalentDescription.DataContext = listBox_Talents.SelectedItem;
 		}
 		
@@ -70,11 +69,17 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 
 		private void Button1_Click(object sender, RoutedEventArgs e) {
-			CreateNewCharacter createNewCharacterWinodw = new CreateNewCharacter();
+			if(createNewCharacterWinodw == null) {
+				createNewCharacterWinodw = new CreateNewCharacter();
+			}
 			createNewCharacterWinodw.Owner = this;
 			createNewCharacterWinodw.ShowDialog();
 		}
 
-		
+		public void refreshLists(object sender, System.EventArgs e) {
+			createNewCharacterWinodw = null;
+			dBControler.UpdateListOfCharacters();
+			listBox_Characters.Items.Refresh();
+		}
 	}
 }

@@ -19,11 +19,11 @@ namespace WHFR_ed2_NPC_Creator
 
 
 		public DataBaseController() {
-			updateListOfCharacters();
+			UpdateListOfCharacters();
 		}
 
 
-		private void updateListOfCharacters() {
+		public void UpdateListOfCharacters() {
 			ListOfCharacters.Clear();
 			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
 			using (SqlConnection connection = new SqlConnection(connectionStr))
@@ -95,7 +95,7 @@ namespace WHFR_ed2_NPC_Creator
 				System.Diagnostics.Debug.WriteLine("table length: " + numberOfRecords.ToString());
 				connection.Close();
 			}
-			updateListOfCharacters();
+			UpdateListOfCharacters();
 			return numberOfRecords;
 		}
 

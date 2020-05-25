@@ -18,7 +18,7 @@ namespace WHFR_ed2_NPC_Creator {
 	/// </summary>
 	public partial class CreateNewCharacter : Window {
 
-
+	
 		ListOfProfessions professions = new ListOfProfessions();
 		Character character = new Character(0, 1);
 		DataBaseController dBController = new DataBaseController();
@@ -33,13 +33,18 @@ namespace WHFR_ed2_NPC_Creator {
 
 
 		private void ListBox_Talents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
+			buildCharacter();
 		}
 
-		private void ComboBox_Profession0_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+		private void ComboBox_Profession_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+			buildCharacter();
 		}
 
 		private void GenerateNewCharacter_Button_Click(object sender, RoutedEventArgs e) {
+			//buildCharacter();
+		}
+
+		private void buildCharacter() {
 			List<Profession> characterProfessions = new List<Profession>();
 			if (comboBox_Profession0.SelectedItem != null) {
 				characterProfessions.Add((Profession)comboBox_Profession0.SelectedItem);
@@ -48,7 +53,7 @@ namespace WHFR_ed2_NPC_Creator {
 				characterProfessions.Add((Profession)comboBox_Profession1.SelectedItem);
 			}
 			if (comboBox_Profession2.SelectedItem != null) {
-				
+
 				characterProfessions.Add((Profession)comboBox_Profession2.SelectedItem);
 			}
 			if (comboBox_Race.SelectedItem != null && characterProfessions.Count > 0) {
@@ -58,13 +63,13 @@ namespace WHFR_ed2_NPC_Creator {
 				listBox_Skills.DataContext = character;
 				textBox_CharacterName.DataContext = character;
 			} else {
-				MessageBox.Show("Nie wybrano rasy lub drofesji");
+				character = null;
 			}
-
 		}
 
 		private void SaveCharacter_button_Click(object sender, RoutedEventArgs e) {
 			dBController.SaveToDataBase(character);
+			this.Close();
 		}
 	}
 }
