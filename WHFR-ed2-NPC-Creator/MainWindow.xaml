@@ -134,6 +134,7 @@
 		<Button x:Name="button_Copy" Content="DebugChars" HorizontalAlignment="Left" Margin="90,639,0,0" VerticalAlignment="Top" Width="75" Click="Button_Chars" Height="20" RenderTransformOrigin="1.053,0.325"/>
 		<Button x:Name="SaveCharacterButton" Content="Save Character" HorizontalAlignment="Left" Margin="527,639,0,0" VerticalAlignment="Top" Width="100" Click="SaveCharacterButton_Click" Height="20" RenderTransformOrigin="1.053,0.325"/>
 		<ListBox x:Name="listBox_Characters" ItemsSource="{Binding ListOfCharacters}" HorizontalAlignment="Left" Height="306" Margin="315,328,0,0" VerticalAlignment="Top" Width="312" SelectionChanged="ListBox_Characters_SelectionChanged"/>
+		<Button x:Name="button1" Content="Add New" HorizontalAlignment="Left" Margin="315,639,0,0" VerticalAlignment="Top" Width="75" Click="Button1_Click"/>
 
 	</Grid>
 </Window>

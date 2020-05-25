@@ -71,5 +71,10 @@ namespace WHFR_ed2_NPC_Creator {
 			groupBox.DataContext = listBox_Characters.SelectedItem;	
 			//character = dBControler.ListOfCharacters[listBox_Characters.SelectedIndex];
 		}
+
+		private void Button1_Click(object sender, RoutedEventArgs e) {
+			CreateNewCharacter createNewCharacterWinodw = new CreateNewCharacter();
+			createNewCharacterWinodw.Show();
+		}
 	}
 }

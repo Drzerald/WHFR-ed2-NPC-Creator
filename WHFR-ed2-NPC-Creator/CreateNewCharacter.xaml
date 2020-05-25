@@ -1,0 +1,143 @@
+﻿<Window x:Class="WHFR_ed2_NPC_Creator.CreateNewCharacter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WHFR_ed2_NPC_Creator"
+        mc:Ignorable="d"
+        Title="CreateNewCharacter" Height="737.603" Width="963.636">
+	<Grid>
+
+		<Grid Margin="10,10,0,0" Height="20" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top">
+			<Label Content="Name:" Margin="0,-4,0,0"/>
+			<TextBox x:Name ="textBox_CharacterName" Text="{Binding Name, Mode=TwoWay}" Margin="50,0,0,0"/>
+		</Grid>
+
+
+		<GroupBox x:Name="groupBox" Header="Cechy" HorizontalAlignment="Left" Height="160" Width="600" Margin="10,48,0,0" VerticalAlignment="Top">
+			<Grid Margin="0,0,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2.5*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="0.15*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+				</Grid.RowDefinitions>
+				<Label Content="WW" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center"/>
+				<Label Content="US" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center"/>
+				<Label Content="K" Grid.Column="3" Grid.Row="0"	HorizontalAlignment="Center"/>
+				<Label Content="T" Grid.Column="4" Grid.Row="0"	HorizontalAlignment="Center"/>
+				<Label Content="Agi" Grid.Column="5" Grid.Row="0" HorizontalAlignment="Center"/>
+				<Label Content="Int" Grid.Column="6" Grid.Row="0" HorizontalAlignment="Center"/>
+				<Label Content="WP" Grid.Column="7" Grid.Row="0" HorizontalAlignment="Center"/>
+				<Label Content="Ogł" Grid.Column="8" Grid.Row="0" HorizontalAlignment="Center"/>
+
+				<Label Content="A" Grid.Column="10" Grid.Row="1" HorizontalAlignment="Center"/>
+				<Label Content="Żwy" Grid.Column="11" Grid.Row="1" HorizontalAlignment="Center"/>
+				<Label Content="S" Grid.Column="12" Grid.Row="3" HorizontalAlignment="Center"/>
+				<Label Content="Wt" Grid.Column="13" Grid.Row="3" HorizontalAlignment="Center"/>
+				<Label Content="Sz" Grid.Column="14" Grid.Row="1" HorizontalAlignment="Center"/>
+				<Label Content="Mag" Grid.Column="15" Grid.Row="1" HorizontalAlignment="Center"/>
+
+				<Label Content="Rzuty:" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="1"/>
+				<TextBox Text="{Binding CharacteristicsFromRolls.WeaponSkills, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"	Grid.Column="1" Grid.Row="1" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14"/>
+				<TextBox Text="{Binding CharacteristicsFromRolls.BalisticSkills, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"	Grid.Column="2" Grid.Row="1" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14" />
+				<TextBox Text="{Binding CharacteristicsFromRolls.Strength, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"			Grid.Column="3" Grid.Row="1" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14"/>
+				<TextBox Text="{Binding CharacteristicsFromRolls.Toughness, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="4" Grid.Row="1" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14"/>
+				<TextBox Text="{Binding CharacteristicsFromRolls.Agility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"			Grid.Column="5" Grid.Row="1" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14"/>
+				<TextBox Text="{Binding CharacteristicsFromRolls.Intelligence, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="6" Grid.Row="1" TextAlignment="Center"  BorderBrush="Green" BorderThickness="2" FontSize="14"/>
+				<TextBox Text="{Binding CharacteristicsFromRolls.WillPower, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="7" Grid.Row="1" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14"/>
+				<TextBox Text="{Binding CharacteristicsFromRolls.Fellowship, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="8" Grid.Row="1" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14"/>
+
+				<Label Content="Rasa:" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="2"/>
+				<TextBox Text="{Binding Race.Characteristics.WeaponSkills, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="1" Grid.Row="2" TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding Race.Characteristics.BalisticSkills, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"	Grid.Column="2" Grid.Row="2" TextAlignment="Center" FontSize="14" Focusable="False"/>
+				<TextBox Text="{Binding Race.Characteristics.Strength, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"			Grid.Column="3" Grid.Row="2" TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding Race.Characteristics.Toughness, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="4" Grid.Row="2" TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding Race.Characteristics.Agility, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"			Grid.Column="5" Grid.Row="2" TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding Race.Characteristics.Intelligence, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="6" Grid.Row="2" TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding Race.Characteristics.WillPower, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="7" Grid.Row="2" TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding Race.Characteristics.Fellowship, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="8" Grid.Row="2" TextAlignment="Center" FontSize="14" Focusable="False" />
+
+				<TextBox Text="{Binding Race.Characteristics.Attacks, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"			Grid.Column="10" Grid.Row="2" TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding Race.Characteristics.Wounds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"			Grid.Column="11" Grid.Row="2" TextAlignment="Center" BorderBrush="Green" BorderThickness="2" FontSize="14"/>
+				<TextBox Text="{Binding Race.Characteristics.Mobility, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"			Grid.Column="14" Grid.Row="2" TextAlignment="Center" Focusable="False" />
+				<TextBox Text="{Binding Race.Characteristics.Magick, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"			Grid.Column="15" Grid.Row="2" TextAlignment="Center" Focusable="False" />
+
+				<Label Content="Rozwinięcia:" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="3"/>
+				<TextBox Text="{Binding CharacteristicsFromProfessions.WeaponSkills, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"	Grid.Column="1" Grid.Row="3"  TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding CharacteristicsFromProfessions.BalisticSkills, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"	Grid.Column="2" Grid.Row="3"  TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Strength, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="3" Grid.Row="3"  TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Toughness, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="4" Grid.Row="3"  TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Agility, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="5" Grid.Row="3"  TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Intelligence, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"	Grid.Column="6" Grid.Row="3"  TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding CharacteristicsFromProfessions.WillPower, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="7" Grid.Row="3"  TextAlignment="Center" FontSize="14" Focusable="False" />
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Fellowship, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="8" Grid.Row="3"  TextAlignment="Center" FontSize="14" Focusable="False" />
+
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Attacks, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"	Grid.Column="10" Grid.Row="3" TextAlignment="Center" FontSize="14"  Focusable="False" />
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Wounds, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="11" Grid.Row="3" TextAlignment="Center" FontSize="14"  Focusable="False" />
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Mobility, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"	Grid.Column="14" Grid.Row="3" TextAlignment="Center" FontSize="14"  Focusable="False" />
+				<TextBox Text="{Binding CharacteristicsFromProfessions.Magick, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"		Grid.Column="15" Grid.Row="3" TextAlignment="Center" FontSize="14"  Focusable="False" />
+
+				<Label Content="Wynik:" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="4"/>
+				<TextBox Text="{Binding Characteristics.WeaponSkills, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="4" TextAlignment="Center" FontSize="14"  Focusable="False" FontWeight="Bold" />
+				<TextBox Text="{Binding Characteristics.BalisticSkills, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.Strength, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.Toughness, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="4" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.Agility, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="5" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.Intelligence, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.WillPower, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="7" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.Fellowship, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="8" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.Attacks, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="10" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.Wounds, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="11" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.StrengthBonus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="12" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.ToughnessBonus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="13" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.Mobility, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="14" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+				<TextBox Text="{Binding Characteristics.Magick, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="15" Grid.Row="4" TextAlignment="Center" FontSize="14" Focusable="False" FontWeight="Bold"/>
+
+			</Grid>
+		</GroupBox>
+
+		<GroupBox Header="Zdolności" HorizontalAlignment="Left" Height="429" Width="300" Margin="10,213,0,0" VerticalAlignment="Top">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height ="1*" />
+					<RowDefinition Height ="3*" />
+				</Grid.RowDefinitions>
+				<ListBox x:Name="listBox_Talents"  ItemsSource="{Binding Talents}" SelectionChanged="ListBox_Talents_SelectionChanged" Grid.Row="1" Margin="0,0,0,301"/>
+				<TextBlock x:Name="textBlock_TalentDescription" Text="{Binding Description}" TextWrapping="Wrap" Foreground="Black" Background="White" Grid.Row="0" />
+			</Grid>
+		</GroupBox>
+
+		<GroupBox Header="Umiejętności" Margin="315,208,0,0" VerticalAlignment="Top" Height="434" Width="295" HorizontalAlignment="Left">
+			<ListBox x:Name="listBox_Skills"  ItemsSource="{Binding skills.LearnedSkills}"/>
+		</GroupBox>
+
+		<GroupBox Header="Profesje" Width="200" Height="200" Margin="746,8,10,499">
+			<Grid>
+				<ComboBox x:Name="comboBox_Profession0" ItemsSource="{Binding Professions, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="ComboBox_Profession0_SelectionChanged"/>
+				<ComboBox x:Name="comboBox_Profession1" ItemsSource="{Binding Professions, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="147"/>
+				<ComboBox x:Name="comboBox_Profession2" ItemsSource="{Binding Professions, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="147"/>
+			</Grid>
+		</GroupBox>
+
+	</Grid>
+</Window>

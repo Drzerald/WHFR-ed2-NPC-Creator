@@ -75,8 +75,12 @@
     <Compile Include="Armor.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Characteristics.cs" />
+    <Compile Include="CreateNewCharacter.xaml.cs">
+      <DependentUpon>CreateNewCharacter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataBaseController.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="ListOfProfessions.cs" />
     <Compile Include="Profession.cs" />
     <Compile Include="Race.cs" />
     <Compile Include="SideCharacteristics.cs" />
@@ -91,6 +95,10 @@
       <DependentUpon>TalentsDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Weapon.cs" />
+    <Page Include="CreateNewCharacter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

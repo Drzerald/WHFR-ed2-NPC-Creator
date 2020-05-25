@@ -75,6 +75,10 @@ namespace WHFR_ed2_NPC_Creator {
 			}
 		}
 
+		public override string ToString() {
+			return Name;
+		}
+
 		//DEBUG:
 		public void debugPrint() {
 			System.Diagnostics.Debug.WriteLine("PROFESSION: " + Name);
