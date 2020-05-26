@@ -10,11 +10,8 @@ namespace WHFR_ed2_NPC_Creator {
 	class Profession {
 		public int Id { get; }
 		public string Name { get; }
-		//private bool isAdvanced;
-
 		public Characteristics Characteristics { get; set; } = new Characteristics();
 		public List<SkillProfile> skills = new List<SkillProfile>();
-		private List<Item> inventory = new List<Item>();
 		public List<Talent> talents = new List<Talent>();
 
 		//Constructor

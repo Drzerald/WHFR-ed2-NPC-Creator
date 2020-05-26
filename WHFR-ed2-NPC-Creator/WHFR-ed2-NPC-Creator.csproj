@@ -72,20 +72,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Armor.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Characteristics.cs" />
     <Compile Include="CreateNewCharacter.xaml.cs">
       <DependentUpon>CreateNewCharacter.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataBaseController.cs" />
-    <Compile Include="Item.cs" />
     <Compile Include="ListOfProfessions.cs" />
     <Compile Include="Profession.cs" />
     <Compile Include="Race.cs" />
     <Compile Include="SideCharacteristics.cs" />
     <Compile Include="Skill.cs" />
-    <Compile Include="Skillid.cs" />
     <Compile Include="SkillList.cs" />
     <Compile Include="SkillProfile.cs" />
     <Compile Include="Talent.cs" />
@@ -94,7 +91,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TalentsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Weapon.cs" />
     <Page Include="CreateNewCharacter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -108,7 +104,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DieRoller.cs" />
-    <Compile Include="MainCharacteristics.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
