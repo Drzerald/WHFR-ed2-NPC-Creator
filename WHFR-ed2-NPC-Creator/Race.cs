@@ -52,7 +52,7 @@ namespace WHFR_ed2_NPC_Creator {
 				System.Data.DataTable table = new System.Data.DataTable();
 				dataAdapter.Fill(table);
 				Characteristics.Wounds = (int)table.Rows[0][Id + 1];
-				System.Diagnostics.Debug.WriteLine(String.Format("Roll Value {0:d} Wouds val {1:d}", rollforWouds, Characteristics.Wounds));
+				//System.Diagnostics.Debug.WriteLine(String.Format("Roll Value {0:d} Wouds val {1:d}", rollforWouds, Characteristics.Wounds));
 			}
 		}
 
