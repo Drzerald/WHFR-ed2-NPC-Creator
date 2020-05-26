@@ -38,9 +38,29 @@ namespace WHFR_ed2_NPC_Creator
 				}
 			}
 			OnPropertyChanged("ListOfCharacters");
-			//DebugPrint();
 		}
 
+		public void SaveChanges(Character character) {
+			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
+			string insertQuerry = "UPDATE dbo.Character SET Name = @Name, WS = @WS, BS = @BS, S = @S, T = @T, Agi = @Agi, Int = @Int, WP = @WP, Fel = @Fel, W = @W WHERE Id = " + character.Id.ToString();
+			using (SqlConnection connection = new SqlConnection(connectionStr))
+			using (SqlCommand command = new SqlCommand(insertQuerry, connection)) {
+				command.Parameters.AddWithValue("@Name", character.Name);
+				command.Parameters.AddWithValue("@WS", character.CharacteristicsFromRolls.WeaponSkills);
+				command.Parameters.AddWithValue("@BS", character.CharacteristicsFromRolls.BalisticSkills);
+				command.Parameters.AddWithValue("@S", character.CharacteristicsFromRolls.Strength);
+				command.Parameters.AddWithValue("@T", character.CharacteristicsFromRolls.Toughness);
+				command.Parameters.AddWithValue("@Agi", character.CharacteristicsFromRolls.Agility);
+				command.Parameters.AddWithValue("@Int", character.CharacteristicsFromRolls.Intelligence);
+				command.Parameters.AddWithValue("@WP", character.CharacteristicsFromRolls.WillPower);
+				command.Parameters.AddWithValue("@Fel", character.CharacteristicsFromRolls.Fellowship);
+				command.Parameters.AddWithValue("@W", character.Race.Characteristics.Wounds);
+	
+				connection.Open();
+				command.ExecuteNonQuery();
+				connection.Close();
+			}
+		}
 
 		public int SaveToDataBase(Character character) {
 			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;

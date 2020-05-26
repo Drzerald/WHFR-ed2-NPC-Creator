@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WHFR_ed2_NPC_Creator"
         mc:Ignorable="d"
-        Title="CreateNewCharacter" Height="680" Width="830">
+        Title="Kreator Postaci WH2" Height="680" Width="830" MaxWidth="830" MinWidth="830" MinHeight="680" MaxHeight="680" >
 	<Grid>
 
 		<Grid Margin="10,10,0,0" Height="20" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top">
-			<Label Content="Name:" Margin="0,-4,0,0"/>
-			<TextBox x:Name ="textBox_CharacterName" Text="{Binding Name, Mode=TwoWay}" Margin="50,0,0,0"/>
+			<Label Content="Imie:" Margin="0,-4,0,0"/>
+			<TextBox x:Name ="textBox_CharacterName" Text="{Binding Name, Mode=TwoWay}" Margin="40,0,0,0"/>
 		</Grid>
 
 		<GroupBox x:Name="groupBox" Header="Cechy" HorizontalAlignment="Left" Height="160" Width="600" Margin="10,48,0,0" VerticalAlignment="Top">
@@ -44,7 +44,7 @@
 				<Label Content="US" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center"/>
 				<Label Content="K" Grid.Column="3" Grid.Row="0"	HorizontalAlignment="Center"/>
 				<Label Content="T" Grid.Column="4" Grid.Row="0"	HorizontalAlignment="Center"/>
-				<Label Content="Agi" Grid.Column="5" Grid.Row="0" HorizontalAlignment="Center"/>
+				<Label Content="Zr" Grid.Column="5" Grid.Row="0" HorizontalAlignment="Center"/>
 				<Label Content="Int" Grid.Column="6" Grid.Row="0" HorizontalAlignment="Center"/>
 				<Label Content="WP" Grid.Column="7" Grid.Row="0" HorizontalAlignment="Center"/>
 				<Label Content="Ogł" Grid.Column="8" Grid.Row="0" HorizontalAlignment="Center"/>
@@ -139,15 +139,15 @@
 			</Grid>
 		</GroupBox>
 
-		<GroupBox Header="Controlls" Width="175" Height="100" Margin="10,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">
+		<GroupBox Header="Losowanie" Width="175" Height="100" Margin="10,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">
 			<Grid>
 				<Button x:Name="Randomize_Button" Content="Losuj Cechy" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Width="120" Height="20" Click="RollCharacteristic_Button"/>
 				<Button x:Name="RandomizeWouds_Button" Content="Losuj Żywotność" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Width="120" Height="20" Click="RandomizeWouds_Button_Click" />
 				<Button x:Name="RandomizeName_Button" Content="Losuj Imie" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" Width="120" Height="20" Click="RandomizeName_Button_Click" />
 			</Grid>
 		</GroupBox>
-		
-		<Button x:Name="saveCharacter_button" Content="Save" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="140" Height="20" Click="SaveCharacter_button_Click"/>
+
+		<Button x:Name="saveCharacter_button" Content="Zapisz i wyjdź" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="140" Height="20" Click="SaveCharacter_button_Click"/>
 
 	</Grid>
 </Window>

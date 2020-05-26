@@ -16,7 +16,7 @@ namespace WHFR_ed2_NPC_Creator {
 		public event PropertyChangedEventHandler PropertyChanged;
 
 	
-		private string name = "Character name (NOT LISKARM)";
+		private string name = "Imie Postaci";
 		public int Id { get; set; } = -1;
 		public event Action OnCharacteristicRecalculate = delegate { };
 		public string Name {

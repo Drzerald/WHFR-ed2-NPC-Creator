@@ -17,7 +17,6 @@ namespace WHFR_ed2_NPC_Creator {
 	/// Logika interakcji dla klasy CreateNewCharacter.xaml
 	/// </summary>
 	public partial class CreateNewCharacter : Window {
-
 	
 		ListOfProfessions professions = new ListOfProfessions();
 		Character character; //= new Character(0, 1);
@@ -45,7 +44,6 @@ namespace WHFR_ed2_NPC_Creator {
 		private void ComboBox_Profession_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 			buildCharacter();
 		}
-
 
 		private void buildCharacter() {
 			string name = "";
@@ -78,10 +76,14 @@ namespace WHFR_ed2_NPC_Creator {
 
 		private void SaveCharacter_button_Click(object sender, RoutedEventArgs e) {
 			if(character != null && character.Name != "") {
-				dBController.SaveToDataBase(character);
-				this.Close();
-				return;
-			}else {
+				if (character.Name != new Character(0, 0).Name) {
+					dBController.SaveToDataBase(character);
+					this.Close();
+					return;
+				} else {
+					MessageBox.Show(String.Format("Imie '{0}' jest niedozwolone", new Character(0, 0).Name));
+				}
+			} else {
 				MessageBox.Show("Imie jest wymagane");
 			}
 		}

@@ -21,27 +21,13 @@ namespace WHFR_ed2_NPC_Creator {
 	/// </summary>
 	public partial class MainWindow : Window {
 
-		Character character { get; set; } = new Character(0, 1, 0);
+		//Character character { get; set; } = new Character(0, 1, 0);
 		DataBaseController dBControler = new DataBaseController();
 		CreateNewCharacter createNewCharacterWinodw { get; set; }
 
-
 		public MainWindow() {
 			InitializeComponent();
-			RaceLabel.DataContext = character.Race;
-			groupBox.DataContext = character;
-			listBox_Talents.DataContext = character;
-			listBox_Skills.DataContext = character;
-			listBox_Characters.DataContext = dBControler;
-			
-		}
-
-		private void Button_Click(object sender, RoutedEventArgs e) {
-			character.debugPrint();
-		}
-
-		private void Button_Chars(object sender, RoutedEventArgs e) {
-			character.Characteristics.DebugPrint();
+			listBox_Characters.DataContext = dBControler;	
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -54,18 +40,23 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 		
 		private void SaveCharacterButton_Click(object sender, RoutedEventArgs e) {
-			int x = dBControler.SaveToDataBase((Character)listBox_Characters.SelectedItem);
-			dBControler.UpdateListOfCharacters();
-			listBox_Characters.DataContext = dBControler;
+			//int x = dBControler.SaveToDataBase((Character)listBox_Characters.SelectedItem);
+			//dBControler.UpdateListOfCharacters();
+			foreach (Character character in dBControler.ListOfCharacters) {
+				dBControler.SaveChanges(character);
+			}
 			listBox_Characters.Items.Refresh();
+			listBox_Characters.DataContext = dBControler;
 		}
 
 		private void ListBox_Characters_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 			resetDataContext();
 			if(listBox_Characters.SelectedItem == null) {
-				SaveCharacterButton.IsEnabled = false;
+				SaveChanges_Button.IsEnabled = false;
+				removeCharacter_Button.IsEnabled = false;
 			} else {
-				SaveCharacterButton.IsEnabled = true;
+				SaveChanges_Button.IsEnabled = true;
+				removeCharacter_Button.IsEnabled = true;
 			}
 		}
 
@@ -85,19 +76,27 @@ namespace WHFR_ed2_NPC_Creator {
 			listBox_Characters.Items.Refresh();
 		}
 
-
 		private void resetDataContext() {
-
 			textBox_CharacterName.DataContext = listBox_Characters.SelectedItem;
 			listBox_Talents.DataContext = listBox_Characters.SelectedItem;
 			listBox_Skills.DataContext = listBox_Characters.SelectedItem;
 			groupBox.DataContext = listBox_Characters.SelectedItem;
+			raceGUIGroup_Grid.DataContext = listBox_Characters.SelectedItem;
 			textBox_CharacterRace.DataContext = listBox_Characters.SelectedItem;
-
 		}
 
 		private void RemoveCharacter_Button_Click(object sender, RoutedEventArgs e) {
-			dBControler.RemoveCharacter((Character)listBox_Characters.SelectedItem);
+			if (listBox_Characters.SelectedItem != null) {
+				MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show(String.Format("Czy na pewno chcesz usunąć {0:}", listBox_Characters.SelectedItem.ToString()) , "Potwierdzenie Usunięcia", System.Windows.MessageBoxButton.YesNo);
+				if (messageBoxResult == MessageBoxResult.Yes) {
+					dBControler.RemoveCharacter((Character)listBox_Characters.SelectedItem);
+					dBControler.UpdateListOfCharacters();
+					listBox_Characters.Items.Refresh();
+				}
+			}
+		}
+
+		private void RevertChanges_Button_Click(object sender, RoutedEventArgs e) {
 			dBControler.UpdateListOfCharacters();
 			listBox_Characters.Items.Refresh();
 		}
