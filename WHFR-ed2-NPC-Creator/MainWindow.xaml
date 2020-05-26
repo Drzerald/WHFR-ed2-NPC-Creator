@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WHFR_ed2_NPC_Creator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="900">
+        Title="MainWindow" Height="719" Width="900">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="221*"/>
 			<ColumnDefinition Width="2*"/>
 		</Grid.ColumnDefinitions>
-		<Button x:Name="button" Content="Debug" HorizontalAlignment="Left" Margin="10,639,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="20" RenderTransformOrigin="1.053,0.325"/>
+		<Button x:Name="button" Content="Debug" HorizontalAlignment="Left" Margin="10,0,10,10" VerticalAlignment="Bottom" Width="75" Click="Button_Click" Height="20" RenderTransformOrigin="1.053,0.325"/>
 
 		<Label x:Name="RaceLabel" Content="{Binding Name, Mode=OneWay}"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,2,0" Height="10" Width="10"/>
 
@@ -19,6 +19,11 @@
 			<Label Content="Name:" Margin="0,-4,0,0"/>
 			<TextBox x:Name ="textBox_CharacterName" Text="{Binding Name, Mode=TwoWay}" Margin="50,0,0,0"/>
 		</Grid>
+		<Grid Margin="650,10,0,0" Height="100" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top">
+			<Label Content="Race:" Margin="0,0,0,0"/>
+			<Label x:Name ="textBox_CharacterRace" Content="{Binding Race.Name, Mode=TwoWay, StringFormat=Rasa {0} }" Margin="50,0,0,0"/>
+		</Grid>
+		
 		<GroupBox x:Name="groupBox" Header="Cechy" HorizontalAlignment="Left" Height="160" Width="600" Margin="10,40,0,0" VerticalAlignment="Top">
 			<Grid Margin="0,0,0,0">
 				<Grid.ColumnDefinitions>
@@ -123,26 +128,22 @@
 			</Grid>
 		</GroupBox>
 
-		<GroupBox Header="Zdolności" HorizontalAlignment="Left" Height="429" Width="300" Margin="10,205,0,0" VerticalAlignment="Top">
+		<GroupBox Header="Zdolności" HorizontalAlignment="Left" Height="430" Width="300" Margin="10,210,0,0" VerticalAlignment="Top">
 			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition Height ="1*" />
-					<RowDefinition Height ="3*" />
-				</Grid.RowDefinitions>
-				<ListBox x:Name="listBox_Talents"  VerticalAlignment="Top"  ItemsSource="{Binding Talents}" SelectionChanged="ListBox_Talents_SelectionChanged" Grid.Row="1"/>
-				<TextBlock x:Name="textBlock_TalentDescription" Text="{Binding Description}" TextWrapping="Wrap" Foreground="Black" Background="White" Grid.Row="0" />
+				<ListBox x:Name="listBox_Talents"  ItemsSource="{Binding Talents}" SelectionChanged="ListBox_Talents_SelectionChanged" Height="340" VerticalAlignment="Bottom"/>
+				<TextBlock x:Name="textBlock_TalentDescription" Text="{Binding Description}" TextWrapping="Wrap" Foreground="Black" Background="White" Height="65" VerticalAlignment="Top"/>
 			</Grid>
 		</GroupBox>
 
-		<GroupBox Header="Umiejętności" Margin="315,208,0,0" VerticalAlignment="Top" Height="434" Width="295" HorizontalAlignment="Left">
+		<GroupBox Header="Umiejętności" Margin="315,210,0,0" VerticalAlignment="Top" Height="430" Width="295" HorizontalAlignment="Left">
 			<ListBox x:Name="listBox_Skills"  ItemsSource="{Binding skills.LearnedSkills}"/>
 		</GroupBox>
 
 
-		<Button x:Name="button_Copy" Content="DebugChars" HorizontalAlignment="Left" Margin="90,639,0,0" VerticalAlignment="Top" Width="75" Click="Button_Chars" Height="20" RenderTransformOrigin="1.053,0.325"/>
-		<Button x:Name="SaveCharacterButton" Content="Save Character" HorizontalAlignment="Left" Margin="527,639,0,0" VerticalAlignment="Top" Width="100" Click="SaveCharacterButton_Click" Height="20" RenderTransformOrigin="1.053,0.325"/>
-		<ListBox x:Name="listBox_Characters" ItemsSource="{Binding ListOfCharacters}" HorizontalAlignment="Left" Height="306" Margin="632,270,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="ListBox_Characters_SelectionChanged" SelectedIndex="0"/>
-		<Button x:Name="button1" Content="Add New" HorizontalAlignment="Left" Margin="315,639,0,0" VerticalAlignment="Top" Width="75" Click="Button1_Click"/>
+		<Button x:Name="button_Copy" Content="DebugChars" HorizontalAlignment="Left" Margin="90,658,0,0" VerticalAlignment="Top" Width="75" Click="Button_Chars" Height="20" RenderTransformOrigin="1.053,0.325"/>
+		<Button x:Name="SaveCharacterButton" Content="Save Character" HorizontalAlignment="Left" Margin="510,645,0,0" VerticalAlignment="Top" Width="100" Click="SaveCharacterButton_Click" Height="20" RenderTransformOrigin="1.053,0.325"/>
+		<ListBox x:Name="listBox_Characters" ItemsSource="{Binding ListOfCharacters}" HorizontalAlignment="Left" Height="306" Margin="632,334,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="ListBox_Characters_SelectionChanged" SelectedIndex="0"/>
+		<Button x:Name="button1" Content="Add New" HorizontalAlignment="Left" Margin="315,645,0,0" VerticalAlignment="Top" Width="75" Click="Button1_Click"/>
 
 	</Grid>
 </Window>

@@ -5,14 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WHFR_ed2_NPC_Creator"
         mc:Ignorable="d"
-        Title="CreateNewCharacter" Height="737.603" Width="963.636">
+        Title="CreateNewCharacter" Height="680" Width="830">
 	<Grid>
 
 		<Grid Margin="10,10,0,0" Height="20" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top">
 			<Label Content="Name:" Margin="0,-4,0,0"/>
 			<TextBox x:Name ="textBox_CharacterName" Text="{Binding Name, Mode=TwoWay}" Margin="50,0,0,0"/>
 		</Grid>
-
 
 		<GroupBox x:Name="groupBox" Header="Cechy" HorizontalAlignment="Left" Height="160" Width="600" Margin="10,48,0,0" VerticalAlignment="Top">
 			<Grid Margin="0,0,0,0">
@@ -116,35 +115,39 @@
 			</Grid>
 		</GroupBox>
 
-		<GroupBox Header="Zdolności" HorizontalAlignment="Left" Height="429" Width="300" Margin="10,213,0,0" VerticalAlignment="Top">
+		<GroupBox Header="Zdolności" HorizontalAlignment="Left" Height="430" Width="300" Margin="10,210,0,0" VerticalAlignment="Top">
 			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition Height ="1*" />
-					<RowDefinition Height ="3*" />
-				</Grid.RowDefinitions>
-				<ListBox x:Name="listBox_Talents"  ItemsSource="{Binding Talents}" SelectionChanged="ListBox_Talents_SelectionChanged" Grid.Row="1"/>
-				<TextBlock x:Name="textBlock_TalentDescription" Text="{Binding Description}" TextWrapping="Wrap" Foreground="Black" Background="White" Grid.Row="0" />
+				<ListBox x:Name="listBox_Talents"  ItemsSource="{Binding Talents}" SelectionChanged="ListBox_Talents_SelectionChanged" Height="340" VerticalAlignment="Bottom"/>
+				<TextBlock x:Name="textBlock_TalentDescription" Text="{Binding Description}" TextWrapping="Wrap" Foreground="Black" Background="White" Height="65" VerticalAlignment="Top"/>
 			</Grid>
 		</GroupBox>
 
-		<GroupBox Header="Umiejętności" Margin="315,208,0,0" VerticalAlignment="Top" Height="434" Width="295" HorizontalAlignment="Left">
+		<GroupBox Header="Umiejętności" Margin="315,210,0,0" VerticalAlignment="Top" Height="430" Width="295" HorizontalAlignment="Left">
 			<ListBox x:Name="listBox_Skills"  ItemsSource="{Binding skills.LearnedSkills}"/>
 		</GroupBox>
 
-		<GroupBox  x:Name="groupBox_Professions" Header="Profesje" Width="175" Height="120" Margin="0,70,10,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+		<GroupBox  x:Name="groupBox_Professions" Header="Profesje" Width="175" Height="120" Margin="0,170,10,0" HorizontalAlignment="Right" VerticalAlignment="Top">
 			<Grid>
-				<ComboBox x:Name="comboBox_Profession0" ItemsSource="{Binding AllProfessions, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBox_Profession_SelectionChanged"/>
+				<ComboBox x:Name="comboBox_Profession0" ItemsSource="{Binding AllProfessions, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBox_Profession_SelectionChanged" SelectedIndex="0"/>
 				<ComboBox x:Name="comboBox_Profession1" ItemsSource="{Binding AllProfessions, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBox_Profession_SelectionChanged"/>
 				<ComboBox x:Name="comboBox_Profession2" ItemsSource="{Binding AllProfessions, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBox_Profession_SelectionChanged"/>
 			</Grid>
 		</GroupBox>
-		<GroupBox x:Name="Race_GroupBox" Header="Rasa" Width="175" Height="60" Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+		<GroupBox x:Name="Race_GroupBox" Header="Rasa" Width="175" Height="60" Margin="0,110,10,0" HorizontalAlignment="Right" VerticalAlignment="Top">
 			<Grid>
-				<ComboBox x:Name="comboBox_Race" ItemsSource="{Binding AllRaces, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBox_Profession_SelectionChanged"/>
+				<ComboBox x:Name="comboBox_Race" ItemsSource="{Binding AllRaces, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBox_Profession_SelectionChanged" SelectedIndex="0"/>
 			</Grid>
 		</GroupBox>
-		<Button x:Name="generateNewCharacter_Button" Content="Generate Character" HorizontalAlignment="Right" Margin="766,190,30,20" VerticalAlignment="Top" Width="140" Height="20" Click="GenerateNewCharacter_Button_Click"/>
-		<Button x:Name="saveCharacter_button" Content="Save" HorizontalAlignment="Right" Margin="0,0,30,10" VerticalAlignment="Bottom" Width="140" Height="20" Click="SaveCharacter_button_Click"/>
+
+		<GroupBox Header="Controlls" Width="175" Height="100" Margin="10,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Top">
+			<Grid>
+				<Button x:Name="Randomize_Button" Content="Losuj Cechy" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Width="120" Height="20" Click="RollCharacteristic_Button"/>
+				<Button x:Name="RandomizeWouds_Button" Content="Losuj Żywotność" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Width="120" Height="20" Click="RandomizeWouds_Button_Click" />
+				<Button x:Name="RandomizeName_Button" Content="Losuj Imie" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" Width="120" Height="20" Click="RandomizeName_Button_Click" />
+			</Grid>
+		</GroupBox>
+		
+		<Button x:Name="saveCharacter_button" Content="Save" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="140" Height="20" Click="SaveCharacter_button_Click"/>
 
 	</Grid>
 </Window>

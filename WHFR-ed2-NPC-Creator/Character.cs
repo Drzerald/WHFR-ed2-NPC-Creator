@@ -7,16 +7,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace WHFR_ed2_NPC_Creator {
-	class Character {
-		private string name = "Character name (NOT LISKARM)";
+	class Character  : INotifyPropertyChanged{
 
+		public event PropertyChangedEventHandler PropertyChanged;
+
+	
+		private string name = "Character name (NOT LISKARM)";
 		public int Id { get; set; } = -1;
 		public event Action OnCharacteristicRecalculate = delegate { };
 		public string Name {
 			get { return name; }
-			set { name = value.Trim(); }
+			set {
+				name = value.Trim();
+				OnPropertyChanged();
+			}
 		}
 		public Characteristics CharacteristicsFromRolls { get; set; } = new Characteristics();
 		public Characteristics CharacteristicsFromProfessions { get; set; } = new Characteristics();
@@ -149,6 +157,23 @@ namespace WHFR_ed2_NPC_Creator {
 			OnCharacteristicRecalculate();
 		}
 
+		public string randomizeName() {
+			string name;
+			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
+			using (SqlConnection connection = new SqlConnection(connectionStr))
+			using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Names", connection)) {
+				connection.Open();
+				System.Data.DataTable table = new System.Data.DataTable();
+				dataAdapter.Fill(table);
+
+				DieRoller dieRoller = new DieRoller();
+				
+				int rollValue = dieRoller.rollDie(1, table.Select().Length -1);
+				name = table.Rows[rollValue][Race.Id + 1].ToString();
+				Name = name;
+			}
+			return name;
+		}
 
 		private void updateProfessionCharateristics() {
 			int[] maxAdvancement = { 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -215,6 +240,7 @@ namespace WHFR_ed2_NPC_Creator {
 			}
 		}
 
+
 		public override string ToString() {
 			if (Name != null) {
 				return Name;
@@ -223,5 +249,8 @@ namespace WHFR_ed2_NPC_Creator {
 			}
  		}
 
+		protected void OnPropertyChanged([CallerMemberName] string name = "") {
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+		}
 	}
 }

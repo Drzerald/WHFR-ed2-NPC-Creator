@@ -20,7 +20,7 @@ namespace WHFR_ed2_NPC_Creator {
 
 	
 		ListOfProfessions professions = new ListOfProfessions();
-		Character character = new Character(0, 1);
+		Character character; //= new Character(0, 1);
 		DataBaseController dBController = new DataBaseController();
 
 		public CreateNewCharacter() {
@@ -32,19 +32,30 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 
 
+
+
+		private void RollCharacteristic_Button(object sender, RoutedEventArgs e) {
+			if(character != null) {
+				character.rerollCharateristics();
+			}
+		}
+
 		private void ListBox_Talents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-			buildCharacter();
+			textBlock_TalentDescription.DataContext = listBox_Talents.SelectedItem;
 		}
 
 		private void ComboBox_Profession_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 			buildCharacter();
 		}
 
-		private void GenerateNewCharacter_Button_Click(object sender, RoutedEventArgs e) {
-			//buildCharacter();
-		}
 
 		private void buildCharacter() {
+			string name = "";
+			if (character != null) {
+				if (character.Name != "") {
+					name = character.Name;
+				}
+			}
 			List<Profession> characterProfessions = new List<Profession>();
 			if (comboBox_Profession0.SelectedItem != null) {
 				characterProfessions.Add((Profession)comboBox_Profession0.SelectedItem);
@@ -58,6 +69,7 @@ namespace WHFR_ed2_NPC_Creator {
 			}
 			if (comboBox_Race.SelectedItem != null && characterProfessions.Count > 0) {
 				character = new Character((Race)comboBox_Race.SelectedItem, characterProfessions);
+				if(name != "") { character.Name = name; }
 				groupBox.DataContext = character;
 				listBox_Talents.DataContext = character;
 				listBox_Skills.DataContext = character;
@@ -68,8 +80,22 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 
 		private void SaveCharacter_button_Click(object sender, RoutedEventArgs e) {
-			dBController.SaveToDataBase(character);
-			this.Close();
+			if(character != null && character.Name != "") {
+				dBController.SaveToDataBase(character);
+				this.Close();
+				return;
+			}else {
+				MessageBox.Show("Imie jest wymagane");
+			}
+		}
+
+		private void RandomizeWouds_Button_Click(object sender, RoutedEventArgs e) {
+			professions.NewWouds();
+		}
+
+		private void RandomizeName_Button_Click(object sender, RoutedEventArgs e) {
+			System.Diagnostics.Debug.WriteLine("New Name: " + character.randomizeName());
+			textBox_CharacterName.DataContext = character;
 		}
 	}
 }

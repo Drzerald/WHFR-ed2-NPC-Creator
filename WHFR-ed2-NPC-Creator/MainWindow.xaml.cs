@@ -23,19 +23,18 @@ namespace WHFR_ed2_NPC_Creator {
 
 		Character character { get; set; } = new Character(0, 1, 0);
 		DataBaseController dBControler = new DataBaseController();
-		private CreateNewCharacter createNewCharacterWinodw { get; set; }
+		CreateNewCharacter createNewCharacterWinodw { get; set; }
 
-		
 
 		public MainWindow() {
 			InitializeComponent();
+			//resetDataContext();
 			RaceLabel.DataContext = character.Race;
 			groupBox.DataContext = character;
 			listBox_Talents.DataContext = character;
 			listBox_Skills.DataContext = character;
 			listBox_Characters.DataContext = dBControler;
-			createNewCharacterWinodw = new CreateNewCharacter();
-			createNewCharacterWinodw.Closed += refreshLists;
+			
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e) {
@@ -62,14 +61,13 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 
 		private void ListBox_Characters_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-			textBox_CharacterName.DataContext = listBox_Characters.SelectedItem;
-			listBox_Talents.DataContext = listBox_Characters.SelectedItem;
-			listBox_Skills.DataContext = listBox_Characters.SelectedItem;
-			groupBox.DataContext = listBox_Characters.SelectedItem;	
+			resetDataContext();
 		}
 
 		private void Button1_Click(object sender, RoutedEventArgs e) {
-			if(createNewCharacterWinodw == null) {
+			createNewCharacterWinodw = new CreateNewCharacter();
+			createNewCharacterWinodw.Closed += refreshLists;
+			if (createNewCharacterWinodw == null) {
 				createNewCharacterWinodw = new CreateNewCharacter();
 			}
 			createNewCharacterWinodw.Owner = this;
@@ -81,5 +79,18 @@ namespace WHFR_ed2_NPC_Creator {
 			dBControler.UpdateListOfCharacters();
 			listBox_Characters.Items.Refresh();
 		}
+
+
+		private void resetDataContext() {
+
+			textBox_CharacterName.DataContext = listBox_Characters.SelectedItem;
+			listBox_Talents.DataContext = listBox_Characters.SelectedItem;
+			listBox_Skills.DataContext = listBox_Characters.SelectedItem;
+			groupBox.DataContext = listBox_Characters.SelectedItem;
+			textBox_CharacterRace.DataContext = listBox_Characters.SelectedItem;
+
+		}
+
+
 	}
 }

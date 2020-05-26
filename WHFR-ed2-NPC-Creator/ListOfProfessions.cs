@@ -13,6 +13,7 @@ namespace WHFR_ed2_NPC_Creator {
 		public List<Race> AllRaces { get; private set; } = new List<Race>();
 		
 
+
 		public ListOfProfessions() {
 			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
 			using (SqlConnection connection = new SqlConnection(connectionStr))
@@ -44,6 +45,11 @@ namespace WHFR_ed2_NPC_Creator {
 			}
 		}
 
+		public void NewWouds() {
+			foreach(Race race in AllRaces) {
+				race.RollNewWoundsValue();
+			}
+		}
 
 	}
 }
