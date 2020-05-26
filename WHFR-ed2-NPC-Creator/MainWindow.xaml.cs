@@ -28,7 +28,6 @@ namespace WHFR_ed2_NPC_Creator {
 
 		public MainWindow() {
 			InitializeComponent();
-			//resetDataContext();
 			RaceLabel.DataContext = character.Race;
 			groupBox.DataContext = character;
 			listBox_Talents.DataContext = character;
@@ -56,12 +55,18 @@ namespace WHFR_ed2_NPC_Creator {
 		
 		private void SaveCharacterButton_Click(object sender, RoutedEventArgs e) {
 			int x = dBControler.SaveToDataBase((Character)listBox_Characters.SelectedItem);
+			dBControler.UpdateListOfCharacters();
 			listBox_Characters.DataContext = dBControler;
 			listBox_Characters.Items.Refresh();
 		}
 
 		private void ListBox_Characters_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 			resetDataContext();
+			if(listBox_Characters.SelectedItem == null) {
+				SaveCharacterButton.IsEnabled = false;
+			} else {
+				SaveCharacterButton.IsEnabled = true;
+			}
 		}
 
 		private void Button1_Click(object sender, RoutedEventArgs e) {
@@ -91,6 +96,10 @@ namespace WHFR_ed2_NPC_Creator {
 
 		}
 
-
+		private void RemoveCharacter_Button_Click(object sender, RoutedEventArgs e) {
+			dBControler.RemoveCharacter((Character)listBox_Characters.SelectedItem);
+			dBControler.UpdateListOfCharacters();
+			listBox_Characters.Items.Refresh();
+		}
 	}
 }

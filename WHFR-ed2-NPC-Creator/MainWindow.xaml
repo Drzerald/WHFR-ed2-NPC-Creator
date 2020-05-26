@@ -5,13 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WHFR_ed2_NPC_Creator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="719" Width="900">
+        Title="MainWindow" Height="708" Width="900">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="221*"/>
 			<ColumnDefinition Width="2*"/>
 		</Grid.ColumnDefinitions>
-		<Button x:Name="button" Content="Debug" HorizontalAlignment="Left" Margin="10,0,10,10" VerticalAlignment="Bottom" Width="75" Click="Button_Click" Height="20" RenderTransformOrigin="1.053,0.325"/>
 
 		<Label x:Name="RaceLabel" Content="{Binding Name, Mode=OneWay}"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,2,0" Height="10" Width="10"/>
 
@@ -138,12 +137,10 @@
 		<GroupBox Header="Umiejętności" Margin="315,210,0,0" VerticalAlignment="Top" Height="430" Width="295" HorizontalAlignment="Left">
 			<ListBox x:Name="listBox_Skills"  ItemsSource="{Binding skills.LearnedSkills}"/>
 		</GroupBox>
-
-
-		<Button x:Name="button_Copy" Content="DebugChars" HorizontalAlignment="Left" Margin="90,658,0,0" VerticalAlignment="Top" Width="75" Click="Button_Chars" Height="20" RenderTransformOrigin="1.053,0.325"/>
-		<Button x:Name="SaveCharacterButton" Content="Save Character" HorizontalAlignment="Left" Margin="510,645,0,0" VerticalAlignment="Top" Width="100" Click="SaveCharacterButton_Click" Height="20" RenderTransformOrigin="1.053,0.325"/>
+		<Button x:Name="SaveCharacterButton" Content="Save Character" HorizontalAlignment="Left" Margin="510,645,0,0" VerticalAlignment="Top" Width="100" Click="SaveCharacterButton_Click" Height="20" />
 		<ListBox x:Name="listBox_Characters" ItemsSource="{Binding ListOfCharacters}" HorizontalAlignment="Left" Height="306" Margin="632,334,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="ListBox_Characters_SelectionChanged" SelectedIndex="0"/>
 		<Button x:Name="button1" Content="Add New" HorizontalAlignment="Left" Margin="315,645,0,0" VerticalAlignment="Top" Width="75" Click="Button1_Click"/>
+		<Button x:Name="removeCharacter_Button" Content="Usuń Postać" HorizontalAlignment="Left" Margin="405,645,0,0" VerticalAlignment="Top" Width="100" Click="RemoveCharacter_Button_Click" Height="20" />
 
 	</Grid>
 </Window>

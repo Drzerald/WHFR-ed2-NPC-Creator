@@ -32,8 +32,6 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 
 
-
-
 		private void RollCharacteristic_Button(object sender, RoutedEventArgs e) {
 			if(character != null) {
 				character.rerollCharateristics();
@@ -64,7 +62,6 @@ namespace WHFR_ed2_NPC_Creator {
 				characterProfessions.Add((Profession)comboBox_Profession1.SelectedItem);
 			}
 			if (comboBox_Profession2.SelectedItem != null) {
-
 				characterProfessions.Add((Profession)comboBox_Profession2.SelectedItem);
 			}
 			if (comboBox_Race.SelectedItem != null && characterProfessions.Count > 0) {

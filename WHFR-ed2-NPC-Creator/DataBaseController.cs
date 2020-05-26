@@ -43,17 +43,13 @@ namespace WHFR_ed2_NPC_Creator
 
 
 		public int SaveToDataBase(Character character) {
-
 			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
-
 			int characterId;
-
 			string insertQuerry = "INSERT INTO dbo.Character (Name, RaceId, WS, BS, S, T, Agi, Int, WP, Fel, W) output INSERTED.ID VALUES (@Name, @RaceId, @WS, @BS, @S, @T, @Agi, @Int, @WP, @Fel, @W)";
 			using (SqlConnection connection = new SqlConnection(connectionStr))
 			using (SqlCommand command = new SqlCommand(insertQuerry, connection)) {
 				//command.CommandType = 
 				int doneQuerrys = 0;
-
 				command.Parameters.AddWithValue("@Name", character.Name);
 				command.Parameters.AddWithValue("@RaceId", character.Race.Id);
 				command.Parameters.AddWithValue("@WS", character.CharacteristicsFromRolls.WeaponSkills);
@@ -84,7 +80,7 @@ namespace WHFR_ed2_NPC_Creator
 				if (doneQuerrys == character.Professions.Count) { System.Diagnostics.Debug.WriteLine("DONE"); }
 				connection.Close();
 			}
-
+			//Debug (Counting Characters)
 			int numberOfRecords;
 			using (SqlConnection connection = new SqlConnection(connectionStr))
 			using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Character", connection)) {
@@ -95,10 +91,29 @@ namespace WHFR_ed2_NPC_Creator
 				System.Diagnostics.Debug.WriteLine("table length: " + numberOfRecords.ToString());
 				connection.Close();
 			}
-			UpdateListOfCharacters();
 			return numberOfRecords;
 		}
 
+
+		
+		public void saveOpendCharactersToDatabase() {
+			/*TODO:
+			 * Removing All Characters and then adding ones in List
+			 */
+
+		}
+
+		public void RemoveCharacter(Character character) {
+			string connectionStr = ConfigurationManager.ConnectionStrings["WHFR_ed2_NPC_Creator.Properties.Settings.DBConnection"].ConnectionString;
+			string insertQuerry = "DELETE FROM dbo.Character WHERE Id = "  + character.Id.ToString();
+			using (SqlConnection connection = new SqlConnection(connectionStr))
+			using (SqlCommand command = new SqlCommand(insertQuerry, connection)) {
+				connection.Open();
+				command.ExecuteNonQuery();
+				command.CommandText = "DELETE FROM dbo.CharacterProfessions WHERE CharacterId = " + character.Id.ToString();
+				command.ExecuteNonQuery();
+			}
+		}
 
 
 		//DEBUG
