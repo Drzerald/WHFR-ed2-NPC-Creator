@@ -1,1 +1,0 @@
-Code should be based on English. The reason behind it is to unify language of this project.
