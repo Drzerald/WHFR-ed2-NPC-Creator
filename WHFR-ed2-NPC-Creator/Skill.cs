@@ -36,7 +36,7 @@ namespace WHFR_ed2_NPC_Creator {
 			set { skillBonus = value; }
 			get { return skillBonus; }
 		}
-		
+
 		//Constructor
 		public Skill(SkillProfile skillProfile) : base (skillProfile.Id) {
 			Level = 0;

@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WHFR_ed2_NPC_Creator.DataBaseController" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="3.75" Width="1.75" />
+    <AssociationLine Name="ListOfCharacters" Type="WHFR_ed2_NPC_Creator.Character">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.386" Y="-0.089" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAAAAIAAAAAAAAAIAAIAAAEgAAAAAAgAAAAAAABQAA=</HashCode>
+      <FileName>DataBaseController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ListOfCharacters" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Orientation="Left" Position="0.1" />
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.Character">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <AssociationLine Name="Characteristics" Type="WHFR_ed2_NPC_Creator.Characteristics">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.165" Y="-0.076" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Race" Type="WHFR_ed2_NPC_Creator.Race" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.5" Y="8.458" />
+        <Point X="9.5" Y="9.058" />
+        <Point X="11.792" Y="9.058" Type="JumpStart" />
+        <Point X="11.958" Y="9.058" Type="JumpEnd" />
+        <Point X="15.688" Y="9.058" />
+        <Point X="15.688" Y="8.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="5.19" Y="0.697" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Talents" Type="WHFR_ed2_NPC_Creator.Talent" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.25" Y="4.562" />
+        <Point X="10.917" Y="4.559" Type="JumpStart" />
+        <Point X="11.083" Y="4.558" Type="JumpEnd" />
+        <Point X="16.25" Y="4.531" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="3.163" Y="-0.097" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="CharacteristicsFromProfessions" Type="WHFR_ed2_NPC_Creator.Characteristics">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.49" Y="-0.09" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="CharacteristicsFromRolls" Type="WHFR_ed2_NPC_Creator.Characteristics">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.804" Y="-0.093" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Professions" Type="WHFR_ed2_NPC_Creator.Profession" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.25" Y="7.188" />
+        <Point X="10.625" Y="7.188" />
+        <Point X="10.625" Y="7.199" />
+        <Point X="11.5" Y="7.199" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.374" Y="-0.089" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="skills" Type="WHFR_ed2_NPC_Creator.SkillList" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.25" Y="5.562" />
+        <Point X="10.496" Y="5.562" />
+        <Point X="10.496" Y="5.562" />
+        <Point X="13.5" Y="5.562" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.432" Y="-0.078" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAADABAAAAAAAAAFqAAABAQBwIEEAAAAAAEBAYAQQAA=</HashCode>
+      <FileName>Character.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Characteristics" />
+      <Property Name="Race" />
+      <Property Name="CharacteristicsFromProfessions" />
+      <Property Name="CharacteristicsFromRolls" />
+      <Property Name="skills" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Talents" />
+      <Property Name="Professions" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.Characteristics">
+    <Position X="21.25" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAAA8GAAA0kBAEMJIQEBAUAAgBBAAABAQAAAQAAFADA=</HashCode>
+      <FileName>Characteristics.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.Race" Collapsed="true">
+    <Position X="15.25" Y="7.75" Width="1.5" />
+    <AssociationLine Name="Characteristics" Type="WHFR_ed2_NPC_Creator.Characteristics" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15.938" Y="8.312" />
+        <Point X="15.938" Y="9.476" />
+        <Point X="21.562" Y="9.476" />
+        <Point X="21.562" Y="8.362" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="4.074" Y="0.983" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAECAAAAAQAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Race.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Characteristics" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.Talent" Collapsed="true">
+    <Position X="16.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Talent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.Profession">
+    <Position X="11.5" Y="6.25" Width="1.5" />
+    <AssociationLine Name="Characteristics" Type="WHFR_ed2_NPC_Creator.Characteristics" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.875" Y="8.382" />
+        <Point X="11.875" Y="9.7" />
+        <Point X="21.812" Y="9.7" />
+        <Point X="21.812" Y="8.362" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="8.257" Y="1.229" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="skills" Type="WHFR_ed2_NPC_Creator.SkillProfile">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="4.274" Y="-0.092" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="talents" Type="WHFR_ed2_NPC_Creator.Talent" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13" Y="7.188" />
+        <Point X="17" Y="7.188" />
+        <Point X="17" Y="4.812" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.212" Y="2.248" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAACABAAAAAAAAAECAAAAAQAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Profession.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Characteristics" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="skills" />
+      <Field Name="talents" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.SkillList">
+    <Position X="13.5" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="skillsArray" Type="WHFR_ed2_NPC_Creator.Skill">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.397" Y="-0.089" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAoAAAAAAAAAAQAAAAAAAAQAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>SkillList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="skillsArray" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.Skill">
+    <Position X="18.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAEBAAQAAQAAQEAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Skill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.SkillProfile" Collapsed="true">
+    <Position X="18.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAAAAAAgAAAEIAAAAAQAAAAAAAAQAAEAAAAAAAA=</HashCode>
+      <FileName>SkillProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.DieRoller">
+    <Position X="5.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAAAAAAAAAAAAAAAAIAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>DieRoller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.CreateNewCharacter" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="character" Type="WHFR_ed2_NPC_Creator.Character">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.319" Y="2.072" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="professions" Type="WHFR_ed2_NPC_Creator.ListOfProfessions">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.305" Y="-0.112" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="dBController" Type="WHFR_ed2_NPC_Creator.DataBaseController">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.878" Y="1.807" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACICAQAAAAAEAABAAAAABAAAAgAAEAAAAAAAAAAAIA=</HashCode>
+      <FileName>CreateNewCharacter.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="character" />
+      <Field Name="professions" />
+      <Field Name="dBController" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.MainWindow" Collapsed="true">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <InheritanceLine Type="System.Windows.Window" ManuallyRouted="true">
+      <Path>
+        <Point X="8.25" Y="1.191" />
+        <Point X="8.25" Y="1.391" />
+        <Point X="5.5" Y="1.391" />
+        <Point X="5.5" Y="2" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="dBControler" Type="WHFR_ed2_NPC_Creator.DataBaseController">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.331" Y="0.535" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAQAaAAAAAAAAAIAICAAAAgAAAQAAgAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="dBControler" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WHFR_ed2_NPC_Creator.ListOfProfessions" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <AssociationLine Name="AllProfessions" Type="WHFR_ed2_NPC_Creator.Profession">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.428" Y="-0.062" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="AllRaces" Type="WHFR_ed2_NPC_Creator.Race" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18" Y="1.69" />
+        <Point X="20.849" Y="1.69" />
+        <Point X="20.849" Y="8.031" />
+        <Point X="19.583" Y="8.031" Type="JumpStart" />
+        <Point X="19.417" Y="8.031" Type="JumpEnd" />
+        <Point X="16.75" Y="8.031" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAABQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ListOfProfessions.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AllProfessions" />
+      <Property Name="AllRaces" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="System.Windows.Window" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
