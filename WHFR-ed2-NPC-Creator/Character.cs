@@ -7,25 +7,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+
 
 namespace WHFR_ed2_NPC_Creator {
 	class Character  : INotifyPropertyChanged{
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-	
-		private string name = "Imie Postaci";
-		public int Id { get; set; } = -1;
 		public event Action OnCharacteristicRecalculate = delegate { };
-		public string Name {
-			get { return name; }
-			set {
-				name = value.Trim();
-				OnPropertyChanged();
-			}
-		}
+
+		private string name = "Imie Postaci";
+
+		public int Id { get; set; } = -1;
 		public Characteristics CharacteristicsFromRolls { get; set; } = new Characteristics();
 		public Characteristics CharacteristicsFromProfessions { get; set; } = new Characteristics();
 		public Race Race { get; set; }
@@ -33,6 +26,15 @@ namespace WHFR_ed2_NPC_Creator {
 		public Characteristics Characteristics { get; set; } = new Characteristics(); //THINK
 		public SkillList skills { get; set; } = new SkillList();
 		public List<Talent> Talents { get; set; } = new List<Talent>();
+
+		public string Name {
+			get { return name; }
+			set {
+				name = value.Trim();
+				OnPropertyChanged();
+			}
+		}
+
 
 		public Character(Race race, List<Profession> professions) {
 			Race = race;

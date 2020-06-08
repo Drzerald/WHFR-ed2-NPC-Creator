@@ -11,7 +11,6 @@ namespace WHFR_ed2_NPC_Creator {
 
 		public List<Profession> AllProfessions { get; private set; } = new List<Profession>();
 		public List<Race> AllRaces { get; private set; } = new List<Race>();
-		
 
 
 		public ListOfProfessions() {

@@ -22,6 +22,8 @@ namespace WHFR_ed2_NPC_Creator {
 		Character character; //= new Character(0, 1);
 		DataBaseController dBController = new DataBaseController();
 
+
+
 		public CreateNewCharacter() {
 			InitializeComponent();
 			groupBox_Professions.DataContext = professions;

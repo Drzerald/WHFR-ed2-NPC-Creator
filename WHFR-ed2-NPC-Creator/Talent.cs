@@ -9,7 +9,7 @@ using System.Configuration;
 namespace WHFR_ed2_NPC_Creator {
 	class Talent {
 		public int Id { get; }
-		public string Name;
+		public string Name { get; private set; }
 		public string Description { get; }
 
 		public Talent(int id) {
@@ -26,7 +26,7 @@ namespace WHFR_ed2_NPC_Creator {
 				Description = talentsTable.Rows[id]["ShortDescription"].ToString();
 
 				connection.Close();
-			}
+			} 
 		}
 
 		public override string ToString() {

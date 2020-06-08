@@ -33,7 +33,7 @@ namespace WHFR_ed2_NPC_Creator {
 		}
 
 		public int SkillBonus {             //if Skill is unlearned then Bonus is -10 (IT'S NOT THE SAME AS IN GAME)
-			set { skillBonus = value; }
+			private set { skillBonus = value; }
 			get { return skillBonus; }
 		}
 
